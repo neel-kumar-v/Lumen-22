@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_LaserBeamShader
+  m_Name: Shader Graphs_LaserStartShader
   m_Shader: {fileID: -6465566751694194690, guid: b3b2d2fad54416948bc5cf0f11473f7e,
     type: 3}
   m_ValidKeywords: []
@@ -35,11 +35,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: fa3408def2f29b241abb22233474e80f, type: 3}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -63,7 +63,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _MainColor: {r: 5.992157, g: 5.992157, b: 5.992157, a: 0}
-    - _MainSpeed: {r: -2, g: 0, b: 0, a: 0}
+    - _MainColor: {r: 23.968628, g: 23.968628, b: 23.968628, a: 0}
+    - _MainSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _NoiseSpeed: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
