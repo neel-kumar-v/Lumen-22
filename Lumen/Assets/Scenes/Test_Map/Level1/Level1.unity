@@ -3263,7 +3263,7 @@ GameObject:
   - component: {fileID: 267438272}
   - component: {fileID: 267438271}
   - component: {fileID: 267438274}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6078,6 +6078,10 @@ PrefabInstance:
     - target: {fileID: 139876, guid: 98f508b556c380a4e89204f95af2d3da, type: 3}
       propertyPath: m_Name
       value: Battery_medium
+      objectReference: {fileID: 0}
+    - target: {fileID: 139876, guid: 98f508b556c380a4e89204f95af2d3da, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 423864, guid: 98f508b556c380a4e89204f95af2d3da, type: 3}
       propertyPath: m_RootOrder
@@ -9697,7 +9701,7 @@ GameObject:
   - component: {fileID: 725336801}
   - component: {fileID: 725336808}
   - component: {fileID: 725336809}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19984,7 +19988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509049291}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20948,7 +20952,8 @@ GameObject:
   - component: {fileID: 1599731279}
   - component: {fileID: 1599731281}
   - component: {fileID: 1599731280}
-  m_Layer: 0
+  - component: {fileID: 1599731282}
+  m_Layer: 3
   m_Name: First Person Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21012,6 +21017,22 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1599731282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599731278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d0e2c1696f2a24b9060746e1077361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCameraTransform: {fileID: 725336805}
+  pickupLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1600713940
 GameObject:
   m_ObjectHideFlags: 0
