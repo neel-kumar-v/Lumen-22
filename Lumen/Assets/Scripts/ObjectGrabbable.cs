@@ -30,13 +30,10 @@ public class ObjectGrabbable : MonoBehaviour
         obj.transform.localScale -= scaleChange;
     }
 
-    private void FixedUpdate()
-    {
-        if (this.objectGrabPointTransform != null)
-        {
-            float lerpSpeed = 10f;
-            Vector3 newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position, Time.deltaTime * lerpSpeed);
-            objectRigidbody.MovePosition(newPosition);
-        }
+    private void FixedUpdate() {
+        if (!this.objectGrabPointTransform) return;
+        float lerpSpeed = 10f;
+        Vector3 newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position, Time.deltaTime * lerpSpeed);
+        objectRigidbody.MovePosition(newPosition);
     }
 }
