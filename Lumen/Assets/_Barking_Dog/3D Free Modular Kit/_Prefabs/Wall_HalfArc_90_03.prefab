@@ -43,7 +43,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.051217854, y: 2.9831276, z: 0.73704463}
+  m_Size: {x: 0.9, y: 2.9831276, z: 4}
   m_Center: {x: 0.014186233, y: 1.5089006, z: 0.35714224}
 --- !u!1 &103288
 GameObject:
@@ -88,7 +88,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.051217854, y: 2.9831276, z: 1.544645}
+  m_Size: {x: 0.9, y: 2.9831276, z: 4}
   m_Center: {x: 0.014186233, y: 1.5089006, z: 0.7609424}
 --- !u!1 &108888
 GameObject:
@@ -217,7 +217,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.051217854, y: 2.9831276, z: 1.5635794}
+  m_Size: {x: 0.9, y: 2.9831276, z: 4}
   m_Center: {x: 0.014188381, y: 1.5089006, z: 0.7704095}
 --- !u!1 &151682
 GameObject:
@@ -262,7 +262,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.051217854, y: 2.9831276, z: 0.8504358}
+  m_Size: {x: 0.9, y: 2.9831276, z: 4}
   m_Center: {x: 0.014205366, y: 1.5089006, z: 0.413814}
 --- !u!1 &169944
 GameObject:
@@ -273,6 +273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 414920}
+  - component: {fileID: 5241381110803582510}
   m_Layer: 0
   m_Name: Wall_HalfArc_90_03
   m_TagString: Untagged
@@ -301,6 +302,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &5241381110803582510
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &188478
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,5 +359,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05121785, y: 2.9831276, z: 0.9657996}
+  m_Size: {x: 0.9, y: 2.9831276, z: 4}
   m_Center: {x: 0.014199868, y: 1.5089006, z: 0.4714893}
