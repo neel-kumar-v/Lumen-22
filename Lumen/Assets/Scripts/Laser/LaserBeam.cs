@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class LaserBeam {
@@ -9,13 +11,21 @@ public class LaserBeam {
     private GameObject laserObject;
     private LineRenderer laser;
     private List<Vector3> laserIndices = new List<Vector3>();
-    
-    public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width) {
+
+    // private LayerMask mask;
+    //
+    // private void Start() {
+    //     mask = LayerMask.GetMask("Ignore Raycast", "Player");
+    // }
+    //
+    public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width, LayerMask mask) {
         this.laser = new LineRenderer();
         this.laserObject = new GameObject();
         this.laserObject.name = "Laser Beam";
         this.pos = pos;
+
         this.dir = dir;
+
         
         this.laser = this.laserObject.AddComponent<LineRenderer>() as LineRenderer;
         this.laser.startWidth = width;
@@ -24,18 +34,24 @@ public class LaserBeam {
         this.laser.colorGradient = colors;
 
         this.laser.textureMode = LineTextureMode.Tile;
+        if (laserDistance == 1000) {
+            CastPickUpRay(pos, dir, laser, laserDistance, mask);
+        }
+        else {
+           CastRay(pos, dir, laser, laserDistance, mask); 
+        }
 
-        CastRay(pos, dir, laser, laserDistance);
+        
     }
 
-    void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance) {
+    void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, LayerMask mask) {
         laserIndices.Add(pos);
 
         Ray ray = new Ray(pos, dir);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, laserDistance, 1)) {
-            CheckHit(hit, dir, laser, laserDistance);
+        if (Physics.Raycast(ray, out hit, laserDistance, mask)) {
+            CheckHit(hit, dir, laser, laserDistance, mask);
         }
         else {
             laserIndices.Add(ray.GetPoint(laserDistance));
@@ -43,12 +59,29 @@ public class LaserBeam {
         }
     }
 
-    void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance) {
-        if (hitInfo.collider.gameObject.CompareTag("Mirror")) {
+    void CastPickUpRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, LayerMask mask) {
+        Debug.Log("first");
+        laserIndices.Add(pos);
+
+        Ray ray = new Ray(pos, dir);
+        RaycastHit hit;
+        
+        if (Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 7f), mask)) {
+            Debug.Log(("second"));
+            CheckHit(hit, dir, laser, laserDistance, mask);
+        }
+        // else {
+        //     laserIndices.Add(ray.GetPoint(laserDistance));
+        //     UpdateLaser();
+        // }
+    }
+
+    void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, LayerMask mask) {
+        if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000) {
             Vector3 pos = hitInfo.point;
             Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
             
-            CastRay(pos, dir, laser, laserDistance);
+            CastRay(pos, dir, laser, laserDistance, mask);
         }
         else {
             laserIndices.Add(hitInfo.point);
@@ -65,4 +98,7 @@ public class LaserBeam {
         }
     }
 
+    void OnDrawGizmos() {
+        Gizmos.DrawLine(pos, pos + dir * 10);
+    }
 }

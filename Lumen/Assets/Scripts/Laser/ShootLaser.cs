@@ -9,9 +9,10 @@ public class ShootLaser : MonoBehaviour {
     [SerializeField] private float laserDistance;
     [SerializeField] private float laserWidth;
     private LaserBeam beam;
+    public LayerMask mask;
 
     private void Update() {
         Destroy(GameObject.Find("Laser Beam"));
-        beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth);
+        beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, mask);
     }
 }
