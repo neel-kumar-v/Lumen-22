@@ -79,7 +79,7 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void FixedUpdate() {
         if (!objectGrabPointTransform) return;
-        Vector3 newPosition = Vector3.Slerp(transform.position,objectGrabPointTransform.position, Time.deltaTime * moveSpeed);
+        Vector3 newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position, Time.deltaTime * moveSpeed);
         objectRigidbody.MovePosition(newPosition);
     }
 }

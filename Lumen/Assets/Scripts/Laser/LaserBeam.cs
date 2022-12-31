@@ -5,12 +5,12 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class LaserBeam {
-    
-    private Vector3 pos, dir;
-    
+    private readonly Vector3 pos;
+    private readonly Vector3 dir;
+
     private GameObject laserObject;
-    private LineRenderer laser;
-    private List<Vector3> laserIndices = new List<Vector3>();
+    private readonly LineRenderer laser;
+    private readonly List<Vector3> laserIndices = new List<Vector3>();
 
     // private LayerMask mask;
     //
@@ -65,11 +65,10 @@ public class LaserBeam {
 
         Ray ray = new Ray(pos, dir);
         RaycastHit hit;
-        
-        if (Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 7f), mask)) {
-            Debug.Log(("second"));
-            CheckHit(hit, dir, laser, laserDistance, mask);
-        }
+
+        if (!Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 7f), mask)) return;
+        Debug.Log(("second"));
+        CheckHit(hit, dir, laser, laserDistance, mask);
         // else {
         //     laserIndices.Add(ray.GetPoint(laserDistance));
         //     UpdateLaser();
