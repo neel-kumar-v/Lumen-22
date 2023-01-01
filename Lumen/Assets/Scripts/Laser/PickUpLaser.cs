@@ -18,6 +18,6 @@ public class PickUpLaser : MonoBehaviour
         if (pickedUpObject == null) return;
         
         Vector3 dir = (pickedUpObject.position - laserStart.position).normalized;
-        beam = new LaserBeam(laserStart.position, dir, material, colors, 1000, laserWidth, mask);
+        beam = new LaserBeam(laserStart.position, dir, material, colors, 1000, laserWidth);
     }
 }
