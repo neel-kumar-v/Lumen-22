@@ -18,6 +18,8 @@ public class ObjectGrabbable : MonoBehaviour
     private Vector3 shrinkScale;
     private Vector3 normalColliderScale;
     private Vector3 shrinkColliderScale;
+    
+    [SerializeField] private Transform playerCameraTransform;
 
     private void Awake()
     {
@@ -79,7 +81,7 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void FixedUpdate() {
         if (!objectGrabPointTransform) return;
-        Vector3 newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position, Time.deltaTime * moveSpeed);
+        Vector3 newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position + playerCameraTransform.forward, Time.deltaTime * moveSpeed);
         objectRigidbody.MovePosition(newPosition);
     }
 }

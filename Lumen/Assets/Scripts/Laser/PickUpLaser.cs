@@ -9,7 +9,7 @@ public class PickUpLaser : MonoBehaviour
     [SerializeField] private float laserWidth;
     private LaserBeam beam;
     [SerializeField] private Transform laserStart;
-    [HideInInspector] public Transform pickedUpObject = null;
+    [SerializeField] public Transform pickedUpObject = null;
     public LayerMask mask;
 
     private void Update() {

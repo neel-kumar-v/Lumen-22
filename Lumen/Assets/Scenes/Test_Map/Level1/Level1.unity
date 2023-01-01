@@ -22087,8 +22087,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 384
   objectGrabPointTransform: {fileID: 145882545}
-  mat: {fileID: 0}
-  laser: {fileID: 0}
+  mat: {fileID: 2100000, guid: 7efa7c72051a6b743a21f1a4148145d0, type: 2}
+  laser: {fileID: 1599731283}
 --- !u!114 &1599731283
 MonoBehaviour:
   m_ObjectHideFlags: 0
