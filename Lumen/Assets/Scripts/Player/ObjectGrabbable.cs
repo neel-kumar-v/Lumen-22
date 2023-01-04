@@ -18,6 +18,7 @@ public class ObjectGrabbable : MonoBehaviour
     private Vector3 shrinkScale;
     private Vector3 normalColliderScale;
     private Vector3 shrinkColliderScale;
+    public Vector3 newPosition;
     
     [SerializeField] private Transform playerCameraTransform;
 
@@ -55,10 +56,11 @@ public class ObjectGrabbable : MonoBehaviour
 
     public void Grab(Transform objectGrabPointTransform)
     {
+        gameObject.transform.localScale = shrinkScale;
+        
         this.objectGrabPointTransform = objectGrabPointTransform;
         objectRigidbody.useGravity = false;
-
-        gameObject.transform.localScale = shrinkScale;
+        
         // boxCollider.size = shrinkColliderScale;
 
         // this is changing the layer to PickedUpObj so that it won't collide with the player
@@ -81,7 +83,7 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void FixedUpdate() {
         if (!objectGrabPointTransform) return;
-        Vector3 newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position + playerCameraTransform.forward, Time.deltaTime * moveSpeed);
+        newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position + playerCameraTransform.forward, (Time.deltaTime * moveSpeed)/0.5f);
         objectRigidbody.MovePosition(newPosition);
     }
 }

@@ -66,7 +66,7 @@ public class LaserBeam {
         Ray ray = new Ray(pos, dir);
         RaycastHit hit;
 
-        if (!Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 7f))) return;
+        if (!Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 8f))) return;
         Debug.Log(("second"));
         CheckHit(hit, dir, laser, laserDistance);
         // else {
