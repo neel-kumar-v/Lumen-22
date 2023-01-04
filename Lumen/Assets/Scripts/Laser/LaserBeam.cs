@@ -60,12 +60,14 @@ public class LaserBeam {
     }
 
     void CastPickUpRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance) {
+        Debug.Log("first");
         laserIndices.Add(pos);
 
         Ray ray = new Ray(pos, dir);
         RaycastHit hit;
 
-        if (!Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 8f))) return;
+        if (!Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 7f))) return;
+        Debug.Log(("second"));
         CheckHit(hit, dir, laser, laserDistance);
         // else {
         //     laserIndices.Add(ray.GetPoint(laserDistance));

@@ -14,9 +14,6 @@ public class PlayerPickUpDrop : MonoBehaviour
     public Material mat;
     [SerializeField] private PickUpLaser laser;
 
-
-    
-
     private void Start() {
         laser = GetComponent<PickUpLaser>();
     }
@@ -25,11 +22,11 @@ public class PlayerPickUpDrop : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            float pickupDistance = 8f;
+            float pickupDistance = 7f;
             if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickupDistance, pickupLayerMask)) {
                 if (raycastHit.transform.TryGetComponent(out objectGrabbable)) {
                     objectGrabbable.Grab(objectGrabPointTransform);
-                    Debug.Log(objectGrabPointTransform.position);       
+                    Debug.Log(objectGrabPointTransform.position);
                 }
                 laser.pickedUpObject = objectGrabPointTransform;
             }
