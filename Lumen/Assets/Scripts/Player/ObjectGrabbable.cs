@@ -81,9 +81,9 @@ public class ObjectGrabbable : MonoBehaviour
         gameObject.layer = 7; // sets it back to PickUpObj so that there are collisions again.
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         if (!objectGrabPointTransform) return;
-        newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position + playerCameraTransform.forward, (Time.deltaTime * moveSpeed)/0.5f);
+        newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position, (Time.deltaTime * moveSpeed)/0.5f);
         objectRigidbody.MovePosition(newPosition);
     }
 }
