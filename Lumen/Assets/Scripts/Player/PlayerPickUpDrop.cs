@@ -18,6 +18,7 @@ public class PlayerPickUpDrop : MonoBehaviour
         laser = GetComponent<PickUpLaser>();
     }
     private void Update() {
+        
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -25,8 +26,9 @@ public class PlayerPickUpDrop : MonoBehaviour
             if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickupDistance, pickupLayerMask)) {
                 if (raycastHit.transform.TryGetComponent(out objectGrabbable)) {
                     objectGrabbable.Grab(objectGrabPointTransform);
-                    laser.pickedUpObject = objectGrabPointTransform;
+                    Debug.Log(objectGrabPointTransform.position);
                 }
+                laser.pickedUpObject = objectGrabPointTransform;
             }
         }
 
@@ -36,6 +38,5 @@ public class PlayerPickUpDrop : MonoBehaviour
             objectGrabbable = null;
         }
     }
-    
     
 }

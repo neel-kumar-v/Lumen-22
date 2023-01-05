@@ -8,16 +8,20 @@ public class ObjectGrabbable : MonoBehaviour
     private Transform objectGrabPointTransform;
     private BoxCollider boxCollider;
     private Vector3 scaleChange;
+    private Vector3 colliderScaleChange;
     private Material mat;
     [Range(1, 20)]
     public float scale; // changed it from something that subtracts to something that divides and multiplies
-
+    public float colliderScale;
+    
     public float moveSpeed = 10f;
     
     private Vector3 normalScale;
     private Vector3 shrinkScale;
     private Vector3 normalColliderScale;
     private Vector3 shrinkColliderScale;
+    public Vector3 newPosition;
+    public Vector3 oldPosition;
     
     [SerializeField] private Transform playerCameraTransform;
 
@@ -40,10 +44,11 @@ public class ObjectGrabbable : MonoBehaviour
         // it wouldn't fit in its normal size
         boxCollider = GetComponent<BoxCollider>();
         normalColliderScale = boxCollider.size;
+        colliderScaleChange = new Vector3(colliderScale, colliderScale, colliderScale);
         shrinkColliderScale = new Vector3(
-            normalColliderScale.x * scaleChange.x,
-            normalColliderScale.y * scaleChange.y,
-            normalColliderScale.z * scaleChange.z
+            normalColliderScale.x * colliderScaleChange.x,
+            normalColliderScale.y * colliderScaleChange.y,
+            normalColliderScale.z * colliderScaleChange.z
         );
 
     }
@@ -55,14 +60,14 @@ public class ObjectGrabbable : MonoBehaviour
 
     public void Grab(Transform objectGrabPointTransform)
     {
+        gameObject.transform.localScale = shrinkScale;
+        boxCollider.size = shrinkColliderScale;
+        
         this.objectGrabPointTransform = objectGrabPointTransform;
         objectRigidbody.useGravity = false;
+        
+        
 
-        gameObject.transform.localScale = shrinkScale;
-        // boxCollider.size = shrinkColliderScale;
-
-        // this is changing the layer to PickedUpObj so that it won't collide with the player
-        gameObject.layer = 8;
 
     }
     
@@ -74,14 +79,12 @@ public class ObjectGrabbable : MonoBehaviour
         objectRigidbody.useGravity = true;
 
         gameObject.transform.localScale = normalScale;
-        // boxCollider.size = normalColliderScale;
-        
-        gameObject.layer = 7; // sets it back to PickUpObj so that there are collisions again.
+        boxCollider.size = normalColliderScale;
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         if (!objectGrabPointTransform) return;
-        Vector3 newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position + playerCameraTransform.forward, Time.deltaTime * moveSpeed);
+        newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position, (Time.deltaTime * moveSpeed)/0.5f);
         objectRigidbody.MovePosition(newPosition);
     }
 }
