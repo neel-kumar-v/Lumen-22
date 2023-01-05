@@ -26247,12 +26247,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905343460}
   m_CullTransparentMesh: 1
---- !u!4 &1919967609 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7523075527527482826, guid: fddf04047a156aa42b3c54b14dfd9eec,
-    type: 3}
-  m_PrefabInstance: {fileID: 7523075527650064507}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1923312798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29455,26 +29449,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7523075526162763304, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 725336804}
-    - target: {fileID: 7523075526162763304, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: objMovePoint
-      value: 
-      objectReference: {fileID: 1919967609}
-    - target: {fileID: 7523075526162763304, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: pickedUpObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523075526162763304, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: playerCameraTransform
-      value: 
-      objectReference: {fileID: 725336805}
     - target: {fileID: 7523075526162763316, guid: fddf04047a156aa42b3c54b14dfd9eec,
         type: 3}
       propertyPath: m_RootOrder
@@ -29534,51 +29508,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: First Person Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523075527527482826, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523075527527482826, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523075527527482826, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523075528106965650, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: mouseSens
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523075528106965662, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523075528106965663, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: field of view
-      value: 73
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523075528134497028, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523075528134497028, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523075528134497028, guid: fddf04047a156aa42b3c54b14dfd9eec,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fddf04047a156aa42b3c54b14dfd9eec, type: 3}
