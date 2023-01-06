@@ -11,6 +11,11 @@ public class MouseLook : MonoBehaviour
     public Transform centerDot;
 
     float xRotation = 0f;
+
+    [Range(-60f, 0f)]
+    public float topView;
+    [Range(0f, 40f)]
+    public float bottomView;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +29,7 @@ public class MouseLook : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -30f, 22f);
+        xRotation = Mathf.Clamp(xRotation, topView, bottomView);
 
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
