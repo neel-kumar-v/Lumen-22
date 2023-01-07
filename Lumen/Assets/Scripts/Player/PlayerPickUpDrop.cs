@@ -20,7 +20,7 @@ public class PlayerPickUpDrop : MonoBehaviour
     private void Update() {
         
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             float pickupDistance = 7f;
             if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickupDistance, pickupLayerMask)) {
@@ -32,7 +32,7 @@ public class PlayerPickUpDrop : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && objectGrabbable != null) {
+        if (Input.GetKeyDown(KeyCode.E) && objectGrabbable != null) {
             objectGrabbable.Drop();
             laser.pickedUpObject = null;
             objectGrabbable = null;

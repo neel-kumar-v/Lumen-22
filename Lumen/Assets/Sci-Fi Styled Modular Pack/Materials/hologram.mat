@@ -21,24 +21,22 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: hologram
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ValidKeywords:
-  - _ALPHAPREMULTIPLY_ON
-  - _EMISSION
-  - _SURFACE_TYPE_TRANSPARENT
+  m_Shader: {fileID: 4800000, guid: 061bfce32970e2e4799769434794398c, type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
-  disabledShaderPasses:
-  - DepthOnly
-  - SHADOWCASTER
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_48882336:
+        m_Texture: {fileID: 2800000, guid: 7bae9f3d8fb74334ba3889f53fe7eea0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 298751e2d47c6fc4dabd5e865463c5f5, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -97,6 +95,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Vector1_6DC2C68C: 0.1
     - _AlphaClip: 0
     - _Blend: 1
     - _BumpScale: 1
@@ -115,6 +114,7 @@ Material:
     - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0
@@ -126,6 +126,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
+    - Color_19C6C157: {r: 0.28627452, g: 0.6745098, b: 1, a: 0.23921569}
+    - Color_E448CF9F: {r: 329.2863, g: 0, b: 766.9961, a: 0}
+    - Vector2_6925FF1E: {r: 1, g: 3, b: 0, a: 0}
     - _BaseColor: {r: 0.28676465, g: 0.675355, b: 1, a: 0.241}
     - _Color: {r: 0.28676462, g: 0.675355, b: 1, a: 0.241}
     - _EmissionColor: {r: 0.11796324, g: 0.1969833, b: 0.263, a: 1}
