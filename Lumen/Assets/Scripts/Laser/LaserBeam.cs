@@ -19,6 +19,7 @@ public class LaserBeam {
     // }
     //
     public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width) {
+        Debug.Log("Created");
         this.laser = new LineRenderer();
         this.laserObject = new GameObject();
         this.laserObject.name = "Laser Beam";

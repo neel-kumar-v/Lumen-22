@@ -75,7 +75,7 @@ public class ObjectGrabbable : MonoBehaviour
 
     public void Drop()
     {
-        objectGrabPointTransform = null;
+        this.objectGrabPointTransform = null;
         objectRigidbody.useGravity = true;
 
         gameObject.transform.localScale = normalScale;

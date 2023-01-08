@@ -16,7 +16,7 @@ public class MovCam : MonoBehaviour
     void Start()
     {
         pos = transform.position;
-        var myValue = Mathf.Lerp(0, 10, 0.5f);
+        // var myValue = Mathf.Lerp(0, 10, 0.5f);
     }
 
     private void Update()

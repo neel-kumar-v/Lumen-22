@@ -12,9 +12,9 @@ public class MouseLook : MonoBehaviour
 
     float xRotation = 0f;
 
-    [Range(-60f, 0f)]
+    [Range(-50f, 0f)]
     public float topView;
-    [Range(0f, 40f)]
+    [Range(0f, 50f)]
     public float bottomView;
     // Start is called before the first frame update
     void Start()

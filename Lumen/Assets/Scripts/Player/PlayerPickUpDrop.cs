@@ -17,26 +17,47 @@ public class PlayerPickUpDrop : MonoBehaviour
     private void Start() {
         laser = GetComponent<PickUpLaser>();
     }
-    private void Update() {
-        
+    
+    public float turnSpeed = 10f;
 
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            float pickupDistance = 7f;
-            if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickupDistance, pickupLayerMask)) {
-                if (raycastHit.transform.TryGetComponent(out objectGrabbable)) {
-                    objectGrabbable.Grab(objectGrabPointTransform);
-                    Debug.Log(objectGrabPointTransform.position);
+            if (objectGrabbable == null)
+            {
+                float pickupDistance = 7f;
+                if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward,
+                        out RaycastHit raycastHit, pickupDistance, pickupLayerMask))
+                {
+                    if (raycastHit.transform.TryGetComponent(out objectGrabbable))
+                    {
+                        objectGrabbable.Grab(objectGrabPointTransform);
+                        Debug.Log(objectGrabPointTransform.position);
+                    }
+
+                    laser.pickedUpObject = objectGrabPointTransform;
                 }
-                laser.pickedUpObject = objectGrabPointTransform;
+            }
+            else
+            {
+                objectGrabbable.Drop();
+                laser.pickedUpObject = null;
+                objectGrabbable = null;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.E) && objectGrabbable != null) {
-            objectGrabbable.Drop();
-            laser.pickedUpObject = null;
-            objectGrabbable = null;
+        
+        if (Input.GetKey (KeyCode.RightArrow)) {
+            objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateHor")*turnSpeed*Time.deltaTime, 0);
+        }
+        if (Input.GetKey (KeyCode.LeftArrow)) {
+            objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateHor")*turnSpeed*Time.deltaTime, 0);
+        }
+        if (Input.GetKey (KeyCode.UpArrow)) {
+            objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateVer")*turnSpeed*Time.deltaTime, 0);
+        }
+        if (Input.GetKey (KeyCode.DownArrow)) {
+            objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateVer")*turnSpeed*Time.deltaTime, 0);
         }
     }
-    
 }
