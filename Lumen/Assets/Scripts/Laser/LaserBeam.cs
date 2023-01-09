@@ -46,12 +46,12 @@ public class LaserBeam {
         this.laser.colorGradient = colors;
 
         this.laser.textureMode = LineTextureMode.Tile;
-        if (laserDistance == 1000) {
-            CastPickUpRay(pos, dir, laser, laserDistance, width, decrementValue, intensityThreshold);
-        }
-        else {
-           CastRay(pos, dir, laser, laserDistance, width, decrementValue, intensityThreshold); 
-        }
+        // if (laserDistance == 1000) {
+            // CastPickUpRay(pos, dir, laser, laserDistance, width, decrementValue, intensityThreshold);
+        // }
+        // else {
+        // }
+        CastRay(pos, dir, laser, laserDistance, width, decrementValue, intensityThreshold); 
     }
 
     void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width, float decrementValue, float intensityThreshold) {
@@ -69,21 +69,21 @@ public class LaserBeam {
         }
     }
 
-    void CastPickUpRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width, float decrementValue, float intensityThreshold) {
-        Debug.Log("first");
-        laserIndices.Add(pos);
-
-        Ray ray = new Ray(pos, dir);
-        RaycastHit hit;
-
-        if (!Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 8f))) return;
-        Debug.Log(("second"));
-        CheckHit(hit, dir, laser, laserDistance, width, decrementValue, intensityThreshold);
-        // else {
-        //     laserIndices.Add(ray.GetPoint(laserDistance));
-        //     UpdateLaser();
-        // }
-    }
+    // void CastPickUpRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width, float decrementValue, float intensityThreshold) {
+    //     Debug.Log("first");
+    //     laserIndices.Add(pos);
+    //
+    //     Ray ray = new Ray(pos, dir);
+    //     RaycastHit hit;
+    //
+    //     if (!Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 8f))) return;
+    //     Debug.Log(("second"));
+    //     CheckHit(hit, dir, laser, laserDistance, width, decrementValue, intensityThreshold);
+    //     // else {
+    //     //     laserIndices.Add(ray.GetPoint(laserDistance));
+    //     //     UpdateLaser();
+    //     // }
+    // }
 
     void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width, float decrementValue, float intensityThreshold) {
         if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)

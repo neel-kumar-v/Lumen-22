@@ -28,6 +28,6 @@ public class PickUpLaser : MonoBehaviour
 
         float dist = Vector3.Distance(objMovePoint.position, laserStart.position);
         
-        beam = new LaserBeam(laserStart.position, dir, material, colors, dist + 2f, laserWidth, 0f, 0f);
+        // beam = new LaserBeam(laserStart.position, dir, material, colors, dist + 2f, laserWidth, 0f, 0f);
     }
 }
