@@ -15,7 +15,7 @@ public class LaserBeam {
 
     private GameObject door;
 
-    private bool run = true;
+    public bool run = true;
 
     // private LayerMask mask;
     //
@@ -34,6 +34,7 @@ public class LaserBeam {
         if (!run) return;
         this.laser = new LineRenderer();
         this.laserObject = new GameObject();
+        this.laserObject.tag = "Laser";
         this.laserObject.name = "Laser Beam";
         this.pos = pos;
 
@@ -97,7 +98,6 @@ public class LaserBeam {
         else if(hitInfo.collider.gameObject.CompareTag("Door") && width >= intensityThreshold)
         {
             doorAnim.Play(doorAnimation, 0, 0.0f);
-            // run = false;
         }
         else {
             laserIndices.Add(hitInfo.point);
