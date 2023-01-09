@@ -14,11 +14,14 @@ public class ShootLaser : MonoBehaviour {
     public float mirrorCountThreshold = 8f;
     public bool run = true;
     public ParticleSystem particles; 
-
+    
+    public Animator doorAnim;
+    
     
     private void Update() {
         Destroy(GameObject.Find("Laser Beam"));
         if (!run) return;
-        beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold));
+        beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, 
+            laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold));
     }
 }
