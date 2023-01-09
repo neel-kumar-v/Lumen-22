@@ -12,10 +12,12 @@ public class ShootLaser : MonoBehaviour {
     [Range(0, 1f)]
     public float decrement = 0.1f;
     public float mirrorCountThreshold = 8f;
+    public bool run = true;
 
     
     private void Update() {
         Destroy(GameObject.Find("Laser Beam"));
+        if (!run) return;
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold));
     }
 }

@@ -15,7 +15,6 @@ public class LaserBeam {
 
     private GameObject door;
 
-    public bool run = true;
 
     // private LayerMask mask;
     //
@@ -31,7 +30,6 @@ public class LaserBeam {
     }
     
     public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width, float decrementValue, float intensityThreshold) {
-        if (!run) return;
         this.laser = new LineRenderer();
         this.laserObject = new GameObject();
         this.laserObject.tag = "Laser";
