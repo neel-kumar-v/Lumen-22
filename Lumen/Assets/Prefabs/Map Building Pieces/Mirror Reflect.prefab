@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5831079677604892360}
   - component: {fileID: 5831079677604892367}
   - component: {fileID: 5831079677604892366}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mirror Reflect
   m_TagString: Mirror
   m_Icon: {fileID: 0}

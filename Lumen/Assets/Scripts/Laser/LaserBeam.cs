@@ -96,6 +96,7 @@ public class LaserBeam {
         else if(hitInfo.collider.gameObject.CompareTag("Door") && width >= intensityThreshold)
         {
             doorAnim.Play(doorAnimation, 0, 0.0f);
+            Debug.Log("opened");
         }
         else {
             laserIndices.Add(hitInfo.point);
