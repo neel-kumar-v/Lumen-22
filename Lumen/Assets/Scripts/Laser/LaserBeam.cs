@@ -13,7 +13,7 @@ public class LaserBeam {
 
     private string doorAnimation = "DoorOpened";
 
-    public GameObject door;
+    private GameObject door;
 
     private bool run = true;
 
@@ -53,8 +53,6 @@ public class LaserBeam {
         else {
            CastRay(pos, dir, laser, laserDistance, width, decrementValue, intensityThreshold); 
         }
-
-        
     }
 
     void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width, float decrementValue, float intensityThreshold) {

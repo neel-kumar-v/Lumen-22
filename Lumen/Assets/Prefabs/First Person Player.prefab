@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7523075526162763311}
   m_Layer: 3
   m_Name: First Person Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   objectGrabPointTransform: {fileID: 7523075527527482826}
   mat: {fileID: 2100000, guid: 7efa7c72051a6b743a21f1a4148145d0, type: 2}
   laser: {fileID: 7523075526162763304}
+  turnSpeed: 10
 --- !u!114 &7523075526162763304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +437,8 @@ MonoBehaviour:
   mouseSens: 100
   playerBody: {fileID: 7523075526162763316}
   centerDot: {fileID: 0}
+  topView: 0
+  bottomView: 0
 --- !u!1 &7523075528134497029
 GameObject:
   m_ObjectHideFlags: 0
