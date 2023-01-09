@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class LaserBeam {
@@ -18,6 +15,8 @@ public class LaserBeam {
 
     public GameObject door;
 
+    private bool run = true;
+
     // private LayerMask mask;
     //
     // private void Start() {
@@ -31,7 +30,8 @@ public class LaserBeam {
         doorAnim = door.GetComponent<Animator>();
     }
     
-    public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width) {
+    public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width, float decrementValue, float intensityThreshold) {
+        if (!run) return;
         this.laser = new LineRenderer();
         this.laserObject = new GameObject();
         this.laserObject.name = "Laser Beam";
@@ -48,23 +48,23 @@ public class LaserBeam {
 
         this.laser.textureMode = LineTextureMode.Tile;
         if (laserDistance == 1000) {
-            CastPickUpRay(pos, dir, laser, laserDistance, width);
+            CastPickUpRay(pos, dir, laser, laserDistance, width, decrementValue, intensityThreshold);
         }
         else {
-           CastRay(pos, dir, laser, laserDistance, width); 
+           CastRay(pos, dir, laser, laserDistance, width, decrementValue, intensityThreshold); 
         }
 
         
     }
 
-    void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width) {
+    void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width, float decrementValue, float intensityThreshold) {
         laserIndices.Add(pos);
 
         Ray ray = new Ray(pos, dir);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, laserDistance)) {
-            CheckHit(hit, dir, laser, laserDistance, width);
+            CheckHit(hit, dir, laser, laserDistance, width, decrementValue, intensityThreshold);
         }
         else {
             laserIndices.Add(ray.GetPoint(laserDistance));
@@ -72,7 +72,7 @@ public class LaserBeam {
         }
     }
 
-    void CastPickUpRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width) {
+    void CastPickUpRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width, float decrementValue, float intensityThreshold) {
         Debug.Log("first");
         laserIndices.Add(pos);
 
@@ -81,24 +81,25 @@ public class LaserBeam {
 
         if (!Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 8f))) return;
         Debug.Log(("second"));
-        CheckHit(hit, dir, laser, laserDistance, width);
+        CheckHit(hit, dir, laser, laserDistance, width, decrementValue, intensityThreshold);
         // else {
         //     laserIndices.Add(ray.GetPoint(laserDistance));
         //     UpdateLaser();
         // }
     }
 
-    void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width) {
+    void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width, float decrementValue, float intensityThreshold) {
         if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
         {
             Vector3 pos = hitInfo.point;
             Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
             
-            CastRay(pos, dir, laser, laserDistance, width - 0.1f);
+            CastRay(pos, dir, laser, laserDistance, width - decrementValue, decrementValue, intensityThreshold);
         } 
-        else if(hitInfo.collider.gameObject.CompareTag("Door") && width == 0.10f)
+        else if(hitInfo.collider.gameObject.CompareTag("Door") && width >= intensityThreshold)
         {
             doorAnim.Play(doorAnimation, 0, 0.0f);
+            // run = false;
         }
         else {
             laserIndices.Add(hitInfo.point);

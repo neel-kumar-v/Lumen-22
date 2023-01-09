@@ -8,11 +8,10 @@ public class TriggerAnimation : MonoBehaviour
 
     [SerializeField] private string doorOpen = "DoorOpen";
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            myDoor.Play(doorOpen, 0, 0.0f);
-        }
+    public bool locked = true;
+    private void OnTriggerEnter(Collider other) {
+        // if (locked) return;
+        if (!other.CompareTag("Player")) return;
+        myDoor.Play(doorOpen, 0, 0.0f);
     }
 }

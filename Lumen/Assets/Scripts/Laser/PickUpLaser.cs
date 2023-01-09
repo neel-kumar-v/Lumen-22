@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PickUpLaser : MonoBehaviour
@@ -14,6 +15,7 @@ public class PickUpLaser : MonoBehaviour
     // [SerializeField] private Transform playerCameraTransform;
     public Camera cam;
     public LayerMask mask;
+    
 
     private void Update() {
         Destroy(GameObject.Find("Laser Beam"));
@@ -26,6 +28,6 @@ public class PickUpLaser : MonoBehaviour
 
         float dist = Vector3.Distance(objMovePoint.position, laserStart.position);
         
-        beam = new LaserBeam(laserStart.position, dir, material, colors, dist + 2f, laserWidth);
+        beam = new LaserBeam(laserStart.position, dir, material, colors, dist + 2f, laserWidth, 0f, 0f);
     }
 }
