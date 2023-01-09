@@ -13,6 +13,7 @@ public class ShootLaser : MonoBehaviour {
     public float decrement = 0.1f;
     public float mirrorCountThreshold = 8f;
     public bool run = true;
+    public ParticleSystem particles; 
 
     
     private void Update() {
