@@ -77,12 +77,17 @@ public class LaserBeam {
 
     
     void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width) {
+        Debug.Log("test");
+        Debug.Log("hitInfo: " + hitInfo.collider.gameObject.CompareTag("Door"));
+        Debug.Log("width: " + width);
+        Debug.Log("intensity: " + intensityThreshold);
         if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
         {
             Vector3 pos = hitInfo.point;
             Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
             
             CastRay(pos, dir, laser, laserDistance, width - decrementValue);
+            Debug.Log("test 2");
         } 
         else if(hitInfo.collider.gameObject.CompareTag("Door") && width >= intensityThreshold)
         {
@@ -92,6 +97,7 @@ public class LaserBeam {
         else {
             laserIndices.Add(hitInfo.point);
             UpdateLaser();
+            Debug.Log("test 3");
         }
     }
 
