@@ -103,6 +103,10 @@ public class LaserBeam {
         }
     }
 
+    void CreateParticles(Vector3 pos, Vector3 dir) {
+        
+    }
+
     void OnDrawGizmos() {
         Gizmos.DrawLine(pos, pos + dir * 10);
     }
