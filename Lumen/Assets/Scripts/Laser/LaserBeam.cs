@@ -76,6 +76,7 @@ public class LaserBeam {
         UpdateLaser();
     }
 
+    
     void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width) {
         // Debug.Log("width: " + width);
         // Debug.Log("intensity: " + intensityThreshold);
