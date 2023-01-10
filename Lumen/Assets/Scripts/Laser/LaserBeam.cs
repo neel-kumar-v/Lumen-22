@@ -9,8 +9,7 @@ public class LaserBeam {
     private readonly LineRenderer laser;
     private readonly List<Vector3> laserIndices = new List<Vector3>();
     
-    private ShootLaser doorAni;
-    private Animator doorAnim;
+    private ShootLaser doorLaser;
 
     private string doorAnimation = "DoorOpened";
 
@@ -19,12 +18,28 @@ public class LaserBeam {
     private float decrementValue;
     private float intensityThreshold;
     private GameObject laserHitParticles;
+    
+    private bool isLaserActive = false;
+    
+    private float laserDistance;
+    private float width;
 
-    public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width, float decrementValue, float intensityThreshold, GameObject laserHitParticles) {
+    public void ActivateLaser() {
+        isLaserActive = true;
+    }
+
+    public void DeactivateLaser() {
+        isLaserActive = false;
+    }
+
+    public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width, float decrementValue, float intensityThreshold, GameObject laserHitParticles, ShootLaser doorLaser) {
+        this.laserDistance = laserDistance;
+        this.width = width;
         this.laser = new LineRenderer();
         this.laserObject = new GameObject();
         this.laserObject.tag = "Laser";
         this.laserObject.name = "Laser Beam";
+        this.doorLaser = doorLaser;
         this.pos = pos;
 
         this.dir = dir;
@@ -45,45 +60,41 @@ public class LaserBeam {
     }
 
     void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width) {
+        laserIndices.Clear();
         laserIndices.Add(pos);
 
         Ray ray = new Ray(pos, dir);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, laserDistance)) {
+            laserIndices.Add(hit.point);
             CheckHit(hit, dir, laser, laserDistance, width);
         }
         else {
             laserIndices.Add(ray.GetPoint(laserDistance));
-            UpdateLaser();
         }
+        UpdateLaser();
     }
 
-    
     void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width) {
-        Debug.Log("test");
-        Debug.Log("hitInfo: " + hitInfo.collider.gameObject.CompareTag("Door"));
-        Debug.Log("width: " + width);
-        Debug.Log("intensity: " + intensityThreshold);
+        // Debug.Log("width: " + width);
+        // Debug.Log("intensity: " + intensityThreshold);
         if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
         {
             Vector3 pos = hitInfo.point;
             Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
             
-            CreateParticles(pos, dir);
+            // CreateParticles(pos, dir);
             
             CastRay(pos, dir, laser, laserDistance, width - decrementValue);
-            Debug.Log("test 2");
         } 
         else if(hitInfo.collider.gameObject.CompareTag("Door") && width >= intensityThreshold)
         {
-            doorAnim.Play(doorAnimation, 0, 0.0f);
-            Debug.Log("opened");
+            doorLaser.doorOpenAnim.Play(doorAnimation, 0, 0.0f);
         }
         else {
             laserIndices.Add(hitInfo.point);
             UpdateLaser();
-            Debug.Log("test 3");
         }
     }
 
@@ -93,6 +104,14 @@ public class LaserBeam {
         foreach (Vector3 idx in laserIndices) {
             laser.SetPosition(count, idx);
             count++;
+        }
+        laserObject.transform.position = laserIndices[0];
+        laserObject.transform.LookAt(laserIndices[1]);
+    }
+    
+    void Update() {
+        if (isLaserActive) {
+            CastRay(pos, dir, laser, laserDistance, width); 
         }
     }
 
