@@ -10655,7 +10655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &2056940341
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10741,37 +10741,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 947379123432153454, guid: d8e282a9df04474468f34d30cbaa6f3d,
-        type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 947379123432153454, guid: d8e282a9df04474468f34d30cbaa6f3d,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 947379123432153454, guid: d8e282a9df04474468f34d30cbaa6f3d,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 947379123432153454, guid: d8e282a9df04474468f34d30cbaa6f3d,
-        type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 947379123530249612, guid: d8e282a9df04474468f34d30cbaa6f3d,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 1.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 1569187956322503898, guid: d8e282a9df04474468f34d30cbaa6f3d,
-        type: 3}
-      propertyPath: particles
-      value: 
-      objectReference: {fileID: 5267238021472261683, guid: 56d80228f33fb4847999a82a4ad2175b,
-        type: 3}
     - target: {fileID: 1569187956322503899, guid: d8e282a9df04474468f34d30cbaa6f3d,
         type: 3}
       propertyPath: m_Name
@@ -10845,11 +10814,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mirror Block
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753760993739737383, guid: 4557c3946e4fb11488488ec1b76e402f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Mirror
       objectReference: {fileID: 0}
     - target: {fileID: 2753760993739737387, guid: 4557c3946e4fb11488488ec1b76e402f,
         type: 3}
