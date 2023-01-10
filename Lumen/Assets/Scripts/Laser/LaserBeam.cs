@@ -79,12 +79,6 @@ public class LaserBeam {
         CastRay(pos, dir, laser, laserDistance, width); 
     }
 
-    void Update() {
-        if (isLaserActive) {
-            CastRay(pos, dir, laser, laserDistance, width); 
-        }
-    }
-    
     void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width) {
         laserIndices.Clear();
         laserIndices.Add(pos);
@@ -131,6 +125,12 @@ public class LaserBeam {
         }
         laserObject.transform.position = laserIndices[0];
         laserObject.transform.LookAt(laserIndices[1]);
+    }
+    
+    void Update() {
+        if (isLaserActive) {
+            CastRay(pos, dir, laser, laserDistance, width); 
+        }
     }
 
     void CreateParticles(Vector3 pos, Vector3 dir) {

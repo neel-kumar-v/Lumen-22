@@ -22,6 +22,7 @@ public class ShootLaser : MonoBehaviour {
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, 
             laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), particles, this);
         beam.ActivateLaser();
+        Debug.Log("Laser Position: " + gameObject.transform.position);
     }
 
     private void Update() {

@@ -142,3 +142,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   laserDistance: 2
   laserWidth: 0.25
+  decrement: 0.1
+  mirrorCountThreshold: 8
+  run: 1
+  particles: {fileID: 0}
+  doorOpenAnim: {fileID: 0}
