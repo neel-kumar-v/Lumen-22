@@ -10,6 +10,7 @@ public class LaserBeam {
     private readonly List<Vector3> laserIndices = new List<Vector3>();
     
     private ShootLaser doorAni;
+    private Animator doorAnim;
 
     private string doorAnimation = "DoorOpened";
 
@@ -17,6 +18,7 @@ public class LaserBeam {
 
     private float decrementValue;
     private float intensityThreshold;
+    private GameObject laserHitParticles;
 
 
     // private LayerMask mask;
@@ -33,7 +35,7 @@ public class LaserBeam {
     //     doorAnim = door.GetComponent<Animator>();
     // }
     //
-    public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width, float decrementValue, float intensityThreshold) {
+    public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width, float decrementValue, float intensityThreshold, GameObject laserHitParticles) {
         this.laser = new LineRenderer();
         this.laserObject = new GameObject();
         this.laserObject.tag = "Laser";
@@ -57,6 +59,7 @@ public class LaserBeam {
         // }
         this.decrementValue = decrementValue;
         this.intensityThreshold = intensityThreshold;
+        this.laserHitParticles = laserHitParticles;
         CastRay(pos, dir, laser, laserDistance, width); 
     }
 
@@ -91,7 +94,7 @@ public class LaserBeam {
         } 
         else if(hitInfo.collider.gameObject.CompareTag("Door") && width >= intensityThreshold)
         {
-            doorAni.doorAnim.Play(doorAnimation, 0, 0.0f);
+            doorAnim.Play(doorAnimation, 0, 0.0f);
             Debug.Log("opened");
         }
         else {
