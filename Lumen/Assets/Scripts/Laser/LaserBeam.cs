@@ -20,21 +20,6 @@ public class LaserBeam {
     private float intensityThreshold;
     private GameObject laserHitParticles;
 
-
-    // private LayerMask mask;
-    //
-    // private void Start() {
-    //     mask = LayerMask.GetMask("Ignore Raycast", "Player");
-    // }
-    //
-
-    // public void Start()
-    // {
-    //     door = GameObject.FindGameObjectWithTag("Door");
-    //     Debug.Log(door.name);
-    //     doorAnim = door.GetComponent<Animator>();
-    // }
-    //
     public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width, float decrementValue, float intensityThreshold, GameObject laserHitParticles) {
         this.laser = new LineRenderer();
         this.laserObject = new GameObject();
@@ -52,11 +37,7 @@ public class LaserBeam {
         this.laser.colorGradient = colors;
 
         this.laser.textureMode = LineTextureMode.Tile;
-        // if (laserDistance == 1000) {
-            // CastPickUpRay(pos, dir, laser, laserDistance, width, decrementValue, intensityThreshold);
-        // }
-        // else {
-        // }
+
         this.decrementValue = decrementValue;
         this.intensityThreshold = intensityThreshold;
         this.laserHitParticles = laserHitParticles;
@@ -89,6 +70,8 @@ public class LaserBeam {
             Vector3 pos = hitInfo.point;
             Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
             
+            CreateParticles(pos, dir);
+            
             CastRay(pos, dir, laser, laserDistance, width - decrementValue);
             Debug.Log("test 2");
         } 
@@ -120,20 +103,5 @@ public class LaserBeam {
     void OnDrawGizmos() {
         Gizmos.DrawLine(pos, pos + dir * 10);
     }
-    // void CastPickUpRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width, float decrementValue, float intensityThreshold) {
-         //     Debug.Log("first");
-         //     laserIndices.Add(pos);
-         //
-         //     Ray ray = new Ray(pos, dir);
-         //     RaycastHit hit;
-         //
-         //     if (!Physics.Raycast(ray, out hit, Mathf.Min(laserDistance, 8f))) return;
-         //     Debug.Log(("second"));
-         //     CheckHit(hit, dir, laser, laserDistance, width, decrementValue, intensityThreshold);
-         //     // else {
-         //     //     laserIndices.Add(ray.GetPoint(laserDistance));
-         //     //     UpdateLaser();
-         //     // }
-         // }
 
 }
