@@ -13,6 +13,7 @@ public class PlayerPickUpDrop : MonoBehaviour
     private MeshRenderer rend;
     public Material mat;
     [SerializeField] private PickUpLaser laser;
+    [SerializeField] float pickupDistance;
 
     private void Start() {
         laser = GetComponent<PickUpLaser>();
@@ -26,7 +27,6 @@ public class PlayerPickUpDrop : MonoBehaviour
         {
             if (objectGrabbable == null)
             {
-                float pickupDistance = 7f;
                 if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward,
                         out RaycastHit raycastHit, pickupDistance, pickupLayerMask))
                 {
