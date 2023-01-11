@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    public AudioSource audio;
+    public AudioSource audioSource;
     
     private Vector3 prevPosition;
     
@@ -49,13 +49,13 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
         
 
-        if (isGrounded && (x != 0f || z != 0f) && prevPosition != transform.position)
+        if (!isGrounded && (x != 0f || z != 0f) && prevPosition != transform.position)
         {
-            audio.Play();
+            audioSource.Play();
         }
         else if(prevPosition == transform.position)
         {
-            audio.Stop();
+            audioSource.Stop();
         }
         prevPosition = transform.position;
         
