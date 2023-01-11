@@ -98,13 +98,13 @@ MonoBehaviour:
   renderPassEvent: 300
   outlinesLayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
   outlinesOccluderLayerMask:
     serializedVersion: 2
     m_Bits: 127
   outlineSettings:
     outlineColor: {r: 1, g: 1, b: 1, a: 1}
-    outlineScale: 1.99
+    outlineScale: 0.6
     depthThreshold: 1.5
     robertsCrossMultiplier: 100
     normalThreshold: 0.4

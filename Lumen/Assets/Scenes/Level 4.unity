@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08030984, g: 0.09968543, b: 0.30094245, a: 1}
+  m_IndirectSpecularColor: {r: 0.08051002, g: 0.099901564, b: 0.30129018, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -654,7 +654,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorAnim
       value: 
-      objectReference: {fileID: 1472039729}
+      objectReference: {fileID: 0}
     - target: {fileID: 1569187956322503898, guid: d8e282a9df04474468f34d30cbaa6f3d,
         type: 3}
       propertyPath: decrement
@@ -664,7 +664,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorOpenAnim
       value: 
-      objectReference: {fileID: 1472039729}
+      objectReference: {fileID: 0}
     - target: {fileID: 1569187956322503898, guid: d8e282a9df04474468f34d30cbaa6f3d,
         type: 3}
       propertyPath: laserDistance
@@ -7804,6 +7804,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7523075528106965650, guid: fddf04047a156aa42b3c54b14dfd9eec,
         type: 3}
+      propertyPath: mouseSens
+      value: 257.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523075528106965650, guid: fddf04047a156aa42b3c54b14dfd9eec,
+        type: 3}
       propertyPath: bottomView
       value: 40
       objectReference: {fileID: 0}
@@ -10820,7 +10825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf333f9952816c44a9b32337abfe390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDoor: {fileID: 1472039729}
+  myDoor: {fileID: 0}
   doorClose: DoorClosed
   laser: {fileID: 1921443875}
   trigger: {fileID: 1370798191}
@@ -11853,12 +11858,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 428906, guid: a5cd29a93d7ae2d488fa0376d0d08462,
     type: 3}
   m_PrefabInstance: {fileID: 1989747442}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1472039729 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9575016, guid: ac7a01ca06ca9044eb15b32cb7a936f8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1924614215}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1475960524
 PrefabInstance:

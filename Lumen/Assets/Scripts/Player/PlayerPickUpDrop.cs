@@ -34,7 +34,7 @@ public class PlayerPickUpDrop : MonoBehaviour
                     if (raycastHit.transform.TryGetComponent(out objectGrabbable))
                     {
                         objectGrabbable.Grab(objectGrabPointTransform);
-                        Debug.Log(objectGrabPointTransform.position);
+                        // Debug.Log(objectGrabPointTransform.position);
                     }
 
                     laser.pickedUpObject = objectGrabPointTransform;

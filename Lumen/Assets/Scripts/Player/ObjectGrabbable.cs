@@ -55,7 +55,7 @@ public class ObjectGrabbable : MonoBehaviour
 
     public void Start() {
         // this says that there wont be any collisions between player objects and PickedUpObj objects
-        Physics.IgnoreLayerCollision(3, 8); 
+        // Physics.IgnoreLayerCollision(3, 8); 
     }
 
     public void Grab(Transform objectGrabPointTransform)

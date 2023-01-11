@@ -12,7 +12,6 @@ public class LaserBeam
 
     private float decrementValue;
     private float intensityThreshold;
-    private GameObject laserHitParticles;
 
     private Animator doorAnim;
     private string doorAnimation = "DoorOpened";
@@ -20,13 +19,14 @@ public class LaserBeam
 
 
     public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width,
-        float decrementValue, float intensityThreshold, GameObject laserHitParticles, Animator doorAnim)
+        float decrementValue, float intensityThreshold, Animator doorAnim)
     {
         this.doorAnim = doorAnim;
         this.laser = new LineRenderer();
         this.laserObject = new GameObject();
         this.laserObject.tag = "Laser";
         this.laserObject.name = "Laser Beam";
+        
         this.pos = pos;
 
         this.dir = dir;
@@ -42,14 +42,13 @@ public class LaserBeam
 
         this.decrementValue = decrementValue;
         this.intensityThreshold = intensityThreshold;
-        this.laserHitParticles = laserHitParticles;
         CastRay(pos, dir, laser, laserDistance, width, doorAnim);
     }
 
 
     void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width, Animator doorAnim)
     {
-        if (!isLaserOn) return;
+        // if (!isLaserOn) return;
         laserIndices.Add(pos);
         Ray ray = new Ray(pos, dir);
         RaycastHit hit;
@@ -62,37 +61,37 @@ public class LaserBeam
             laserIndices.Add(ray.GetPoint(laserDistance));
             UpdateLaser();
         }
+        Debug.Log(laserIndices);
     }
 
     void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width,
         Animator doorAnim)
     {
-        if (hitInfo.collider.gameObject.CompareTag("Door"))
-        {
+        if (hitInfo.collider.gameObject.CompareTag("Door")) {
             // Check if the width of the beam is greater than or equal to the intensity threshold
-            if (width >= intensityThreshold)
-            {
-                // Play the door open animation
-                doorAnim.Play(doorAnimation, 0, 0.0f);
-                Debug.Log("opened");
-                isLaserOn = false;
-            }
-            else if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
-            {
-                Vector3 pos = hitInfo.point;
-                Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
-                CastRay(pos, dir, laser, laserDistance, width - decrementValue, doorAnim);
-            }
-            else
-            {
-                laserIndices.Add(hitInfo.point);
-                UpdateLaser();
-            }
+            if (!(width >= intensityThreshold)) return;
+            // Play the door open animation
+            doorAnim.Play(doorAnimation, 0, 0.0f);
+            Debug.Log("opened");
+            isLaserOn = false;
         }
+        else if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
+        {
+            Vector3 pos = hitInfo.point;
+            Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
+            CastRay(pos, dir, laser, laserDistance, width - decrementValue, doorAnim);
+        }
+        else
+        {
+            laserIndices.Add(hitInfo.point);
+            UpdateLaser();
+        }
+        
     }
 
     void UpdateLaser()
     {
+        if (!isLaserOn) return;
         int count = 0;
         laser.positionCount = laserIndices.Count;
         foreach (Vector3 idx in laserIndices)
@@ -100,7 +99,7 @@ public class LaserBeam
             laser.SetPosition(count, idx);
             count++;
         }
-
+        
         laserObject.transform.position = laserIndices[0];
         laserObject.transform.LookAt(laserIndices[1]);
     }
