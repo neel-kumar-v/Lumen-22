@@ -18,7 +18,7 @@ public class SceneDoorClose : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         myDoor.Play(doorClose, 0, 0.0f);
         Debug.Log("closed");
-        laser.run = false;
+        // laser.run = false;
         trigger.SetActive(false);
     }
 }

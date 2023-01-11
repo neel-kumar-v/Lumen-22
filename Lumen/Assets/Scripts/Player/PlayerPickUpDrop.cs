@@ -13,7 +13,6 @@ public class PlayerPickUpDrop : MonoBehaviour
     private MeshRenderer rend;
     public Material mat;
     [SerializeField] private PickUpLaser laser;
-    [SerializeField] float pickupDistance;
 
     private void Start() {
         laser = GetComponent<PickUpLaser>();
@@ -27,9 +26,11 @@ public class PlayerPickUpDrop : MonoBehaviour
         {
             if (objectGrabbable == null)
             {
+                float pickupDistance = 8f;
                 if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward,
                         out RaycastHit raycastHit, pickupDistance, pickupLayerMask))
                 {
+                    Debug.Log(raycastHit.transform.gameObject);
                     if (raycastHit.transform.TryGetComponent(out objectGrabbable))
                     {
                         objectGrabbable.Grab(objectGrabPointTransform);
@@ -54,10 +55,10 @@ public class PlayerPickUpDrop : MonoBehaviour
             objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateHor")*turnSpeed*Time.deltaTime, 0);
         }
         if (Input.GetKey (KeyCode.UpArrow)) {
-            objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateVer")*turnSpeed*Time.deltaTime, 0);
+            objectGrabbable.gameObject.transform.Rotate(Input.GetAxis("RotateVer")*turnSpeed*Time.deltaTime, 0, 0);
         }
         if (Input.GetKey (KeyCode.DownArrow)) {
-            objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateVer")*turnSpeed*Time.deltaTime, 0);
+            objectGrabbable.gameObject.transform.Rotate(Input.GetAxis("RotateVer")*turnSpeed*Time.deltaTime, 0, 0);
         }
     }
 }
