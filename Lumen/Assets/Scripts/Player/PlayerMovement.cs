@@ -19,7 +19,10 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-
+    public AudioSource audio;
+    
+    private Vector3 prevPosition;
+    
     // Update is called once per frame
     void Update()
     {
@@ -34,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-
+        
         controller.Move(move * speed * Time.deltaTime);
 
         if(Input.GetButtonDown("Jump") && isGrounded) {
@@ -44,6 +47,18 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+        
+
+        if (isGrounded && (x != 0f || z != 0f) && prevPosition != transform.position)
+        {
+            audio.Play();
+        }
+        else if(prevPosition == transform.position)
+        {
+            audio.Stop();
+        }
+        prevPosition = transform.position;
+        
     }
 
     private void OnDrawGizmos() {
