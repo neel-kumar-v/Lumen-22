@@ -8,14 +8,15 @@ public class LaserBeam
 
     public GameObject laserObject;
     private readonly LineRenderer laser;
-    public List<Vector3> laserIndices = new List<Vector3>();
+    private List<Vector3> laserIndices = new List<Vector3>();
 
     private float decrementValue;
     private float intensityThreshold;
 
     private ShootLaser door;
-    private ShootLaser laserHolder;
-    public bool laserOn = true;
+    private bool laserOn = true;
+    // private ShootLaser audioHum;
+    // private ShootLaser audioElectric;
 
     public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width,
         float decrementValue, float intensityThreshold, ShootLaser door, bool laserOn)
@@ -74,6 +75,8 @@ public class LaserBeam
                 if (!(width >= intensityThreshold)) return;
                 door.doorTurnOff.SetActive(false);
                 door.laserOn = false;
+                door.audioManager.StopSound("LaserHum");
+                door.audioManager.StopSound("LaserElectrical");
             }
             else if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
             {

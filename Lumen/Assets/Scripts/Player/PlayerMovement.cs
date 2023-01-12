@@ -19,9 +19,18 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    public AudioSource audioSource;
+    public AudioManager audioManager;
     
     private Vector3 prevPosition;
+
+    void Start()
+    {
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
+        }
+    }
     
     // Update is called once per frame
     void Update()
@@ -51,11 +60,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isGrounded && (x != 0f || z != 0f) && prevPosition != transform.position)
         {
-            audioSource.Play();
+            audioManager.PlaySound("Footsteps");
         }
         else if(prevPosition == transform.position)
         {
-            audioSource.Stop();
+            audioManager.PlaySound("Footsteps");
         }
         prevPosition = transform.position;
         
