@@ -10023,13 +10023,14 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
-  laserDistance: 2
+  laserDistance: 100
   laserWidth: 0.25
   decrement: 0.1
-  mirrorCountThreshold: 8
+  mirrorCountThreshold: 2
   run: 1
-  particles: {fileID: 0}
-  doorAnimator: {fileID: 0}
+  doorTurnOff: {fileID: 0}
+  gameObj: {fileID: 1569187956322503899}
+  laserOn: 1
 --- !u!82 &1685029258704451138
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10040,15 +10041,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3e243fa962283c542afda67309db8af5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fa9241d07e8fd7240941648af82f118b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.763
-  m_Pitch: -0.23
-  Loop: 0
+  m_Volume: 1
+  m_Pitch: 1.05
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 116
+  Priority: 38
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

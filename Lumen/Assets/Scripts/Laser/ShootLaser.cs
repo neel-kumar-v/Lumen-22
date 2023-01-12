@@ -13,12 +13,13 @@ public class ShootLaser : MonoBehaviour {
     public float decrement = 0.1f;
     public float mirrorCountThreshold = 8f;
     public bool run = true;
-    public Animator doorAnimator;
+    public GameObject doorTurnOff;
+    public GameObject gameObj;
+    public bool laserOn = true;
 
     private void Update() {
         if (beam != null) Destroy(beam.laserObject);
-        // if (!run) return;
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, 
-            laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), doorAnimator);
+            laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn);
     }
 }
