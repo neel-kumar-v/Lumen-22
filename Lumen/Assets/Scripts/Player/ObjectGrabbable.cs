@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class ObjectGrabbable : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class ObjectGrabbable : MonoBehaviour
     public float scale; // changed it from something that subtracts to something that divides and multiplies
     public float colliderScale;
     
-    public float moveSpeed = 10f;
+    public float moveSpeed = 8f;
     
     private Vector3 normalScale;
     private Vector3 shrinkScale;
@@ -75,8 +77,13 @@ public class ObjectGrabbable : MonoBehaviour
 
     public void Drop()
     {
+        objectRigidbody.velocity = Vector3.zero;
         objectGrabPointTransform = null;
-        objectRigidbody.useGravity = true;
+
+        if (!this.CompareTag("Mirror"))
+        {
+            objectRigidbody.useGravity = true;
+        }
 
         gameObject.transform.localScale = normalScale;
         boxCollider.size = normalColliderScale;
@@ -84,7 +91,7 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void Update() {
         if (!objectGrabPointTransform) return;
-        newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position, (Time.deltaTime * moveSpeed)/0.5f);
+        newPosition = Vector3.SlerpUnclamped(transform.position,objectGrabPointTransform.position, (Time.deltaTime * moveSpeed)/0.5f);
         objectRigidbody.MovePosition(newPosition);
     }
 }

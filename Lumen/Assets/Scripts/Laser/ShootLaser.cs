@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using TMPro;
 
 public class ShootLaser : MonoBehaviour {
     public Material material;
@@ -18,6 +19,8 @@ public class ShootLaser : MonoBehaviour {
     public GameObject gameObj;
     public bool laserOn = true;
     public AudioManager audioManager;
+    public Animator anim;
+    public GameObject text;
     
     void Start()
     {
@@ -40,6 +43,6 @@ public class ShootLaser : MonoBehaviour {
     private void Update() {
         if (beam != null) Destroy(beam.laserObject);
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, 
-            laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn);
+            laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn, anim, text);
     }
 }

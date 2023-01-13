@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6730083763518429204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73157692788226937}
+  - component: {fileID: 6831266463881435154}
+  m_Layer: 0
+  m_Name: GM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73157692788226937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730083763518429204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6831266463881435154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730083763518429204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52ec99725959e84f968b711243af7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Footsteps
+    clip: {fileID: 8300000, guid: 16dce5877a5ed344699d17bb81ff0b75, type: 3}
+    volume: 0.5
+    pitch: 1
+    priority: 10
+    loop: 1
+  - name: LaserHum
+    clip: {fileID: 8300000, guid: fa9241d07e8fd7240941648af82f118b, type: 3}
+    volume: 0.62
+    pitch: 3
+    priority: 20
+    loop: 1
+  - name: LaserElectrical
+    clip: {fileID: 8300000, guid: b8dc38a83f0660a4a9d9f376529631d6, type: 3}
+    volume: 0.67
+    pitch: 1
+    priority: 25
+    loop: 1
+  - name: Crash
+    clip: {fileID: 8300000, guid: c4d7f6deb62ed6c4b9a42be89a1df84b, type: 3}
+    volume: 0.67
+    pitch: 1
+    priority: 25
+    loop: 0

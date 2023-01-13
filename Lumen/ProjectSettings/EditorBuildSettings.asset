@@ -15,15 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: 14f9d81c197fc4e2cbccdadf7ea9bea0
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
+    path: Assets/Scenes/Level 4.unity
     guid: c41289d378eabf146a308b1ae508df4d
   - enabled: 1
-    path: Assets/Scenes/Level 3.unity
+    path: Assets/Scenes/Level 5.unity
     guid: 1fa6cd7265b044c129d40671d8c5b3c9
   - enabled: 1
-    path: Assets/Scenes/Level 4.unity
+    path: Assets/Scenes/Level 3.unity
     guid: b42ca4c5c936383429d2318c931f7ad2
   - enabled: 1
-    path: Assets/Scenes/Level 5.unity
+    path: Assets/Scenes/Level 2.unity
     guid: 42f6edfcfc9e541d7b3c9009f73a925d
   m_configObjects: {}

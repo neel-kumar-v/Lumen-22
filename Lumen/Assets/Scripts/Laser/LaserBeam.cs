@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Linq;
 
 public class LaserBeam
 {
@@ -12,14 +14,21 @@ public class LaserBeam
 
     private float decrementValue;
     private float intensityThreshold;
+    
 
     private ShootLaser door;
     private bool laserOn = true;
+
+    private Animator anim;
+
+    private GameObject text;
+
+    private LayerMask mask;
     // private ShootLaser audioHum;
     // private ShootLaser audioElectric;
 
     public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width,
-        float decrementValue, float intensityThreshold, ShootLaser door, bool laserOn)
+        float decrementValue, float intensityThreshold, ShootLaser door, bool laserOn, Animator anim, GameObject text)
     {
         this.door = door;
         this.laser = new LineRenderer();
@@ -27,12 +36,14 @@ public class LaserBeam
         this.laserObject.tag = "Laser";
         this.laserObject.name = "Laser Beam";
         this.laserOn = laserOn;
+        this.anim = anim;
+        this.text = text;
 
         this.pos = pos;
 
         this.dir = dir;
 
-
+        mask = ~(1 << LayerMask.NameToLayer("Player"));
         this.laser = this.laserObject.AddComponent<LineRenderer>() as LineRenderer;
         this.laser.startWidth = width;
         this.laser.endWidth = width;
@@ -55,7 +66,7 @@ public class LaserBeam
             Ray ray = new Ray(pos, dir);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, laserDistance))
+            if (Physics.Raycast(ray, out hit, laserDistance, mask))
             {
                 CheckHit(hit, dir, laser, laserDistance, width);
             }
@@ -77,6 +88,9 @@ public class LaserBeam
                 door.laserOn = false;
                 door.audioManager.StopSound("LaserHum");
                 door.audioManager.StopSound("LaserElectrical");
+                door.audioManager.PlaySound("Crash");
+                text.SetActive(true);
+                door.anim.Play("TextShow");
             }
             else if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
             {
