@@ -24,6 +24,7 @@ public class ObjectGrabbable : MonoBehaviour
     private Vector3 shrinkColliderScale;
     public Vector3 newPosition;
     public Vector3 oldPosition;
+    public bool allowMirrorCollisions;
     
     [SerializeField] private Transform playerCameraTransform;
 
@@ -57,7 +58,10 @@ public class ObjectGrabbable : MonoBehaviour
 
     public void Start() {
         // this says that there wont be any collisions between player objects and PickedUpObj objects
-        Physics.IgnoreLayerCollision(3, 8); 
+        if (allowMirrorCollisions!)
+        {
+            Physics.IgnoreLayerCollision(3, 8);
+        }
     }
 
     public void Grab(Transform objectGrabPointTransform)
