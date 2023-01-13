@@ -57,8 +57,6 @@ public class ObjectGrabbable : MonoBehaviour
     }
 
     public void Start() {
-        // this says that there wont be any collisions between player objects and PickedUpObj objects
-        if (allowMirrorCollisions!)
         {
             Physics.IgnoreLayerCollision(3, 8);
         }
@@ -95,7 +93,7 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void Update() {
         if (!objectGrabPointTransform) return;
-        newPosition = Vector3.SlerpUnclamped(transform.position,objectGrabPointTransform.position, (Time.deltaTime * moveSpeed)/0.5f);
+        newPosition = Vector3.Lerp(transform.position,objectGrabPointTransform.position, (Time.deltaTime * moveSpeed)/0.5f);
         objectRigidbody.MovePosition(newPosition);
     }
 }
