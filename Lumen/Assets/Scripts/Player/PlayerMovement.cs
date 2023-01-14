@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     
     private Vector3 prevPosition;
 
+    public bool turnOff = false;
     void Start()
     {
         audioManager = AudioManager.instance;
@@ -35,39 +36,45 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        
-       
-        if(isGrounded && velocity.y < 0) {
-            velocity.y = -2f;
-        }
-
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * x + transform.forward * z;
-        
-        controller.Move(move * speed * Time.deltaTime);
-
-        if(Input.GetButtonDown("Jump") && isGrounded) {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
-        
-
-        if (!isGrounded && (x != 0f || z != 0f) && prevPosition != transform.position)
+        if (!turnOff)
         {
-            audioManager.PlaySound("Footsteps");
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
+
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+
+            Vector3 move = transform.right * x + transform.forward * z;
+
+            controller.Move(move * speed * Time.deltaTime);
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+
+            velocity.y += gravity * Time.deltaTime;
+
+            controller.Move(velocity * Time.deltaTime);
+
+
+            if (!isGrounded && (x != 0f || z != 0f) && prevPosition != transform.position)
+            {
+                audioManager.PlaySound("Footsteps");
+            }
+            else if (prevPosition == transform.position)
+            {
+                audioManager.PlaySound("Footsteps");
+            }
+
+            prevPosition = transform.position;
         }
-        else if(prevPosition == transform.position)
-        {
-            audioManager.PlaySound("Footsteps");
-        }
-        prevPosition = transform.position;
-        
+
     }
 
     private void OnDrawGizmos() {
