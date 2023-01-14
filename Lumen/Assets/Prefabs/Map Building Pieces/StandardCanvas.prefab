@@ -112,7 +112,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
     m_Top: 25
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 83.5
+  m_Spacing: 40.52
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -404,7 +404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 205.2, y: -534.9904}
+  m_AnchoredPosition: {x: 205.2, y: -332.39264}
   m_SizeDelta: {x: 287.8986, y: 54.4937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5421926670549654407
@@ -921,7 +921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 205.2, y: -810.97784}
+  m_AnchoredPosition: {x: 205.2, y: -522.42004}
   m_SizeDelta: {x: 148.6, y: 54.4937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5421926671398022558
@@ -1055,7 +1055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 205.2, y: -672.98413}
+  m_AnchoredPosition: {x: 205.2, y: -427.40634}
   m_SizeDelta: {x: 330.9814, y: 54.4937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5421926671503258699
@@ -1189,7 +1189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 205.20001, y: -396.99673}
+  m_AnchoredPosition: {x: 205.20001, y: -237.37894}
   m_SizeDelta: {x: 148.5974, y: 54.4937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5421926671652192841
@@ -1468,7 +1468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 205.2, y: -211.65027}
+  m_AnchoredPosition: {x: 205.2, y: -95.01247}
   m_SizeDelta: {x: 279.2659, y: 74.59961}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5421926671772264349
@@ -2023,6 +2023,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3762575092407427490, guid: e56dea5dfb838584ca1008f65834c85e,
         type: 3}
+      propertyPath: m_text
+      value: 'MIRROR TURN SPEED: Medium'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762575092407427490, guid: e56dea5dfb838584ca1008f65834c85e,
+        type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -2090,6 +2095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607362394564409152, guid: e56dea5dfb838584ca1008f65834c85e,
+        type: 3}
+      propertyPath: m_text
+      value: 'MOUSE SENSITIVITY: 0'
       objectReference: {fileID: 0}
     - target: {fileID: 6607362394564409152, guid: e56dea5dfb838584ca1008f65834c85e,
         type: 3}
@@ -2290,6 +2300,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607362395387518452, guid: e56dea5dfb838584ca1008f65834c85e,
+        type: 3}
+      propertyPath: m_text
+      value: 'VOLUME: 0'
       objectReference: {fileID: 0}
     - target: {fileID: 6607362395387518452, guid: e56dea5dfb838584ca1008f65834c85e,
         type: 3}

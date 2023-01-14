@@ -54,16 +54,16 @@ public class PlayerPickUpDrop : MonoBehaviour
         }
         
         if (Input.GetKey (KeyCode.RightArrow)) {
-            objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateHor")*turnSpeed*Time.deltaTime, 0);
+            objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateHor")*turnSpeed*Time.deltaTime, 0, Space.Self);
         }
         if (Input.GetKey (KeyCode.LeftArrow)) {
-            objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateHor")*turnSpeed*Time.deltaTime, 0);
+            objectGrabbable.gameObject.transform.Rotate(0, Input.GetAxis("RotateHor")*turnSpeed*Time.deltaTime, 0, Space.Self);
         }
         if (Input.GetKey (KeyCode.UpArrow)) {
-            objectGrabbable.gameObject.transform.Rotate(Input.GetAxis("RotateVer")*turnSpeed*Time.deltaTime, 0, 0);
+            objectGrabbable.gameObject.transform.Rotate(Input.GetAxis("RotateVer")*turnSpeed*Time.deltaTime, 0, 0, Space.Self);
         }
         if (Input.GetKey (KeyCode.DownArrow)) {
-            objectGrabbable.gameObject.transform.Rotate(Input.GetAxis("RotateVer")*turnSpeed*Time.deltaTime, 0, 0);
+            objectGrabbable.gameObject.transform.Rotate(Input.GetAxis("RotateVer")*turnSpeed*Time.deltaTime, 0, 0, Space.Self);
         }
     }
 }
