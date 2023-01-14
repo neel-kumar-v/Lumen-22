@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 7523075526162763306}
-  speed: 8
+  speed: 6.3
   groundCheck: {fileID: 7523075526206323632}
   groundDistance: 0.4
   groundMask:
@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 7523075528106965651}
   - component: {fileID: 7523075528106965650}
   - component: {fileID: 1960214120}
+  - component: {fileID: 1939482546}
   m_Layer: 3
   m_Name: Camera
   m_TagString: Untagged
@@ -335,8 +336,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7523075528106965659}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.33, z: -0.01999998}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.22666723, y: 1.33, z: -0.019999875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -344,7 +345,7 @@ Transform:
   - {fileID: 7523075528134497028}
   m_Father: {fileID: 7523075526162763316}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!20 &7523075528106965663
 Camera:
   m_ObjectHideFlags: 0
@@ -369,11 +370,11 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
+  far clip plane: 1e+10
   field of view: 73.00001
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -449,11 +450,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39f305d25e2c2a49a5f17fc68590c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSens: 170
+  mouseSens: 90
   playerBody: {fileID: 7523075526162763316}
   centerDot: {fileID: 0}
-  topView: -20
-  bottomView: 40
+  topView: -30
+  bottomView: 20
 --- !u!114 &1960214120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +467,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6228ce3179b054bbafe6e14c79daba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1939482546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7523075528106965659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9999992, y: 0.4183036, z: 0.9999992}
+  m_Center: {x: 0, y: -0.009115785, z: 0}
 --- !u!1 &7523075528134497029
 GameObject:
   m_ObjectHideFlags: 0

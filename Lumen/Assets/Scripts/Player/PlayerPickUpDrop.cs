@@ -13,12 +13,17 @@ public class PlayerPickUpDrop : MonoBehaviour
     private MeshRenderer rend;
     public Material mat;
     [SerializeField] private PickUpLaser laser;
+    public float turnSpeed = 10f;
 
     private void Start() {
         laser = GetComponent<PickUpLaser>();
+        UpdateTurnSpeed();
     }
-    
-    public float turnSpeed = 10f;
+
+    public void UpdateTurnSpeed() {
+        turnSpeed = PlayerPrefs.GetFloat("turn speed");
+    }
+
 
     private void Update()
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08051002, g: 0.099901564, b: 0.30129018, a: 1}
+  m_IndirectSpecularColor: {r: 0.100868285, g: 0.12523706, b: 0.31788212, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2144,6 +2144,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4680370343005275832, guid: 8493022f5ce44c54085ed25d5c8829a0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680370343005275832, guid: 8493022f5ce44c54085ed25d5c8829a0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680370343005275832, guid: 8493022f5ce44c54085ed25d5c8829a0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5421926670408459331, guid: 8493022f5ce44c54085ed25d5c8829a0,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7463,75 +7478,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 874572512}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &971976228
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6279175923072876678, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_Name
-      value: BlackBorderCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 948.2352
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 469.50055
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -40.6498
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279175923072876682, guid: bcbe9b5e14b3a1046895bb7fed592dbe,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bcbe9b5e14b3a1046895bb7fed592dbe, type: 3}
 --- !u!4 &985460652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 464552, guid: 64b3f36e835346747865afbf6cf62acf,
@@ -13898,6 +13844,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1334060013}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1974832215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974832218}
+  - component: {fileID: 1974832217}
+  - component: {fileID: 1974832216}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1974832216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974832215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1974832217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974832215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1974832218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974832215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1980679284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 462570, guid: d4c686e5f86722a409d1d35154c22d14,
