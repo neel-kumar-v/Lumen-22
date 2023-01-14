@@ -20,6 +20,11 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        UpdateMouse();
+    }
+
+    public void UpdateMouse() {
+        mouseSens = PlayerPrefs.GetFloat("sensitivity");
     }
 
     // Update is called once per frame

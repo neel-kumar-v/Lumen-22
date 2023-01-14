@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
 
     public UnityEvent pausedEvent;
     public UnityEvent unpausedEvent;
-    public AudioMixer mainMixer;
+    // public AudioMixer mainMixer;
 
     // Update is called once per frame
     void Update()
@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour
         if (paused) { unpausedEvent.Invoke(); } else { pausedEvent.Invoke(); }
         Cursor.lockState = paused ? CursorLockMode.Locked : CursorLockMode.None;
         // float muffled = (paused ? 20000f : 600f);
-        // mainMixer.SetFloat("Muffled", muffled);
+        // mainMixer.SetFloat("Muffled", 500f);
         Time.timeScale = paused ? 1f : 0f;  // Time is stopped
         // now set paused to new state
         paused = !paused;

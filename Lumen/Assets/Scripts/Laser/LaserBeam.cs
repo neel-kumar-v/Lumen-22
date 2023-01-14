@@ -124,10 +124,10 @@ public class LaserBeam
         } 
 
 
-        void OnDrawGizmos()
-        {
-            Gizmos.DrawLine(pos, pos + dir * 10);
-        }
+        // void OnDrawGizmos()
+        // {
+        //     Gizmos.DrawLine(pos, pos + dir * 10);
+        // }
 
     }
 }

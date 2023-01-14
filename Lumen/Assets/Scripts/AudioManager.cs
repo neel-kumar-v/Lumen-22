@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class AudioManager : MonoBehaviour
     
     [SerializeField]
     private Sound[] sounds;
+    public AudioMixer audioMixer;
 
 
     void Awake()
@@ -21,6 +23,8 @@ public class AudioManager : MonoBehaviour
             instance = this;
         }
     }
+    
+
     void Start()
     {
         for (int i = 0; i < sounds.Length; i++)
@@ -29,6 +33,8 @@ public class AudioManager : MonoBehaviour
             _go.transform.SetParent(this.transform);
             sounds[i].SetSource (_go.AddComponent<AudioSource>());
         }
+        audioMixer.SetFloat("volume", -20f);
+        PlayerPrefs.SetFloat("sensitivity", 100f);
     }
 
     public void PlaySound(string _name)

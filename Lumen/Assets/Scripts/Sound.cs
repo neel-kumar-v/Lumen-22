@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- [System.Serializable]
+using UnityEngine.Audio;
+
+[System.Serializable]
 public class Sound
 {
     public string name;
     public AudioClip clip;
+    public AudioMixerGroup mixer;
 
     [Range(0, 3f)]
     public float volume = 0.7f;
@@ -25,8 +28,8 @@ public class Sound
         source.clip = clip;
     }
 
-    public void Play()
-    {
+    public void Play() {
+        source.outputAudioMixerGroup = mixer;
         source.volume = volume;
         source.pitch = pitch;
         source.priority = priority;

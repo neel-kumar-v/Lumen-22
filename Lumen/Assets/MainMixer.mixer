@@ -1,12 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-714195114317201048
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 879878d09665f1e4eaba6b15abe37caa
+  m_EffectName: Lowpass Simple
+  m_MixLevel: 1942047f068ab2b4fb7d996377921707
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 234e694999fd88949a03028f5cd57a58
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OptionsVolumeMixer
+  m_Name: MainMixer
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
@@ -39,6 +55,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
+  - {fileID: -714195114317201048}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -67,5 +84,6 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 0310675c0f1ac444d9dad8a0755261d8
   m_FloatValues:
-    6b416936cd5239f4e8c1c394b3173c67: 0.27000841
+    6b416936cd5239f4e8c1c394b3173c67: -14.2
+    234e694999fd88949a03028f5cd57a58: 8484
   m_TransitionOverrides: {}

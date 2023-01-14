@@ -47,25 +47,30 @@ MonoBehaviour:
   sounds:
   - name: Footsteps
     clip: {fileID: 8300000, guid: 16dce5877a5ed344699d17bb81ff0b75, type: 3}
+    mixer: {fileID: 24300002, guid: 5d1e90afb802d53449e69f0049de7b05, type: 2}
     volume: 0.5
     pitch: 1
     priority: 10
     loop: 1
   - name: LaserHum
     clip: {fileID: 8300000, guid: fa9241d07e8fd7240941648af82f118b, type: 3}
-    volume: 0.62
+    mixer: {fileID: 24300002, guid: 5d1e90afb802d53449e69f0049de7b05, type: 2}
+    volume: 1.02
     pitch: 3
     priority: 20
     loop: 1
   - name: LaserElectrical
     clip: {fileID: 8300000, guid: b8dc38a83f0660a4a9d9f376529631d6, type: 3}
+    mixer: {fileID: 24300002, guid: 5d1e90afb802d53449e69f0049de7b05, type: 2}
     volume: 0.67
     pitch: 1
     priority: 25
     loop: 1
   - name: Crash
     clip: {fileID: 8300000, guid: c4d7f6deb62ed6c4b9a42be89a1df84b, type: 3}
+    mixer: {fileID: 24300002, guid: 5d1e90afb802d53449e69f0049de7b05, type: 2}
     volume: 0.67
     pitch: 1
     priority: 25
     loop: 0
+  audioMixer: {fileID: 24100000, guid: 5d1e90afb802d53449e69f0049de7b05, type: 2}
