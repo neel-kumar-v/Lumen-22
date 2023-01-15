@@ -2150,7 +2150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1567696481}
-  distance: 8
+  distance: 8.01
 --- !u!1 &190614836
 GameObject:
   m_ObjectHideFlags: 0
@@ -15262,6 +15262,7 @@ Transform:
   - {fileID: 916250035}
   - {fileID: 283541094}
   - {fileID: 218225445}
+  - {fileID: 672247049179507338}
   - {fileID: 2085802322}
   - {fileID: 507903315}
   - {fileID: 1835384095}
@@ -15276,7 +15277,6 @@ Transform:
   - {fileID: 1491982889}
   - {fileID: 1126854148}
   - {fileID: 286837902}
-  - {fileID: 672247049179507338}
   - {fileID: 123036878}
   - {fileID: 927798771}
   - {fileID: 2000095001}
@@ -18703,7 +18703,7 @@ Transform:
   - {fileID: 672247049179585090}
   - {fileID: 672247049179615886}
   m_Father: {fileID: 1707678187}
-  m_RootOrder: 35
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &672247049179507624
 Transform:
