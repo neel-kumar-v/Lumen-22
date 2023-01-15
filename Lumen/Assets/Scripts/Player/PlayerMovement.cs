@@ -71,7 +71,12 @@ public class PlayerMovement : MonoBehaviour
         {
             audioManager.PlaySound("Footsteps");
         }
-        
+        else if (prevPosition == transform.position)
+        {
+            audioManager.PlaySound("Footsteps");
+        }
+        prevPosition = transform.position;
+
         if (transform.position.y <= -5f)
         {
             Debug.Log("Went Below");
