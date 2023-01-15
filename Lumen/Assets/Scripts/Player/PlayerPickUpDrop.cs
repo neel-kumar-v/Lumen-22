@@ -30,7 +30,7 @@ public class PlayerPickUpDrop : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (objectGrabbable == null)
-            {
+                {
                 float pickupDistance = 6f;
                 if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward,
                         out RaycastHit raycastHit, pickupDistance, pickupLayerMask))
@@ -52,17 +52,19 @@ public class PlayerPickUpDrop : MonoBehaviour
                 objectGrabbable = null;
             }
         }
-        if (Input.GetKey (KeyCode.RightArrow)) {
-            objectGrabbable.gameObject.transform.Rotate(0, turnSpeed*Time.deltaTime, 0, Space.Self);
-        }
-        if (Input.GetKey (KeyCode.LeftArrow)) {
-            objectGrabbable.gameObject.transform.Rotate(0, turnSpeed*Time.deltaTime, 0, Space.Self);
-        }
-        if (Input.GetKey (KeyCode.UpArrow)) {
-            objectGrabbable.gameObject.transform.Rotate(turnSpeed*Time.deltaTime, 0, 0, Space.Self);
-        }
-        if (Input.GetKey (KeyCode.DownArrow)) {
-            objectGrabbable.gameObject.transform.Rotate(turnSpeed*Time.deltaTime, 0, 0, Space.Self);
+        if (objectGrabbable != null) {
+            if (Input.GetKey (KeyCode.RightArrow)) {
+                objectGrabbable.gameObject.transform.Rotate(0, turnSpeed*Time.deltaTime, 0, Space.Self);
+            }
+            if (Input.GetKey (KeyCode.LeftArrow)) {
+                objectGrabbable.gameObject.transform.Rotate(0, -turnSpeed*Time.deltaTime, 0, Space.Self);
+            }
+            if (Input.GetKey (KeyCode.UpArrow)) {
+                objectGrabbable.gameObject.transform.Rotate(-turnSpeed*Time.deltaTime, 0, 0, Space.Self);
+            }
+            if (Input.GetKey (KeyCode.DownArrow)) {
+                objectGrabbable.gameObject.transform.Rotate(-turnSpeed*Time.deltaTime, 0, 0, Space.Self);
+            }
         }
     }
 }
