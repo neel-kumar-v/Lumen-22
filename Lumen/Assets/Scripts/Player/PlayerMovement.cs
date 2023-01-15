@@ -17,13 +17,18 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
 
     Vector3 velocity;
-    bool isGrounded;
+    public bool isGrounded;
 
     public AudioManager audioManager;
     
     private Vector3 prevPosition;
+    
+    private Vector3 startPos;
+
+    private Rigidbody rb;
 
     public bool turnOff = false;
+    
     void Start()
     {
         audioManager = AudioManager.instance;
@@ -31,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
         }
+        
+        rb = GetComponent<Rigidbody>();
+        startPos = transform.position;
     }
     
     // Update is called once per frame
@@ -74,9 +82,21 @@ public class PlayerMovement : MonoBehaviour
 
             prevPosition = transform.position;
         }
-
+        
+        if (transform.position.y <= -5f)
+        {
+            Debug.Log("Went Below");
+            transform.eulerAngles = new Vector3(0f, 90f, 0f);
+            Reset();
+        }
     }
 
+    private void Reset()
+    {
+        transform.position = startPos;
+        rb.velocity = Vector3.zero;
+    }
+  
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(groundCheck.position, groundDistance);
     }
