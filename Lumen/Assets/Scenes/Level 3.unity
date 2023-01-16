@@ -2275,8 +2275,39 @@ PrefabInstance:
       propertyPath: m_Name
       value: StandardCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5421926671503258697, guid: 8493022f5ce44c54085ed25d5c8829a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421926671503258697, guid: 8493022f5ce44c54085ed25d5c8829a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1793697953}
+    - target: {fileID: 5421926671503258697, guid: 8493022f5ce44c54085ed25d5c8829a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeTo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421926671503258697, guid: 8493022f5ce44c54085ed25d5c8829a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneFader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421926671503258697, guid: 8493022f5ce44c54085ed25d5c8829a0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8493022f5ce44c54085ed25d5c8829a0, type: 3}
+--- !u!1 &244644722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5421926672129582070, guid: 8493022f5ce44c54085ed25d5c8829a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 244644721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &246103914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 473370, guid: a6b9d7f63692cfd44b503ed7e09f6e5d,
@@ -4668,6 +4699,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 244644722}
+    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
+        type: 3}
+      propertyPath: doorTurnOff
+      value: 
+      objectReference: {fileID: 6913809729856849220}
+    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
+        type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 725780228}
+    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
+        type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 6913809729856849219}
     - target: {fileID: 9157059492731839681, guid: 4a569fe2613355f4a93da03a69b7ab62,
         type: 3}
       propertyPath: m_Name
@@ -7103,6 +7154,16 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 725780228}
+    - target: {fileID: 7523075526162763307, guid: fddf04047a156aa42b3c54b14dfd9eec,
+        type: 3}
+      propertyPath: onRespawn.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1793697953}
+    - target: {fileID: 7523075526162763307, guid: fddf04047a156aa42b3c54b14dfd9eec,
+        type: 3}
+      propertyPath: onRespawn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeTo
+      objectReference: {fileID: 0}
     - target: {fileID: 7523075526162763316, guid: fddf04047a156aa42b3c54b14dfd9eec,
         type: 3}
       propertyPath: m_RootOrder
@@ -13056,6 +13117,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 726c7f1e53185af45b6918c46d04968b, type: 3}
+--- !u!114 &1793697953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3985683517572968528, guid: 726c7f1e53185af45b6918c46d04968b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1793697952}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5de8a4be6b38344be133c719cdab37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1804346626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 428906, guid: a5cd29a93d7ae2d488fa0376d0d08462,
@@ -18331,5 +18404,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorWithHallway
       objectReference: {fileID: 0}
+    - target: {fileID: 6913809731432602353, guid: 39c8812db92f8d54ead90a210252eec5,
+        type: 3}
+      propertyPath: fader
+      value: 
+      objectReference: {fileID: 1793697953}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39c8812db92f8d54ead90a210252eec5, type: 3}
+--- !u!95 &6913809729856849219 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6913809731758128810, guid: 39c8812db92f8d54ead90a210252eec5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6913809729856849218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6913809729856849220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6913809731764583449, guid: 39c8812db92f8d54ead90a210252eec5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6913809729856849218}
+  m_PrefabAsset: {fileID: 0}

@@ -38,7 +38,11 @@ public class SceneFader : MonoBehaviour
             image.color = new Color (0f, 0f, 0f, a);
             yield return 0;
         }
-        
+
+        if (scene < 0) {
+            StartCoroutine(FadeIn());
+            yield return 0;
+        }
         SceneManager.LoadScene(scene);
 
     }

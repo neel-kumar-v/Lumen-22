@@ -16,10 +16,10 @@ public class LaserBeam
     private float intensityThreshold;
     
 
-    private ShootLaser door;
+    private ShootLaser shootLaser;
     private bool laserOn = true;
 
-    private Animator anim;
+    private Animator doorAnimator;
 
     private GameObject text;
 
@@ -28,15 +28,15 @@ public class LaserBeam
     // private ShootLaser audioElectric;
 
     public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width,
-        float decrementValue, float intensityThreshold, ShootLaser door, bool laserOn, Animator anim, GameObject text)
+        float decrementValue, float intensityThreshold, ShootLaser shootLaser, bool laserOn, Animator doorAnimator, GameObject text)
     {
-        this.door = door;
+        this.shootLaser = shootLaser;
         this.laser = new LineRenderer();
         this.laserObject = new GameObject();
         this.laserObject.tag = "Laser";
         this.laserObject.name = "Laser Beam";
         this.laserOn = laserOn;
-        this.anim = anim;
+        this.doorAnimator = doorAnimator;
         this.text = text;
 
         this.pos = pos;
@@ -84,13 +84,15 @@ public class LaserBeam
             {
                 // Check if the width of the beam is greater than or equal to the intensity threshold
                 if (!(width >= intensityThreshold)) return;
-                door.doorTurnOff.SetActive(false);
-                door.laserOn = false;
-                door.audioManager.StopSound("LaserHum");
-                door.audioManager.StopSound("LaserElectrical");
-                door.audioManager.PlaySound("Crash");
+                shootLaser.doorTurnOff.SetActive(false);
+                shootLaser.laserOn = false;
+                shootLaser.audioManager.StopSound("LaserHum");
+                shootLaser.audioManager.StopSound("LaserElectrical");
+                shootLaser.audioManager.PlaySound("Crash");
                 text.SetActive(true);
-                door.anim.Play("TextShow");
+                shootLaser.doorAnimator.Play("TextShow");
+                shootLaser.OnDoorHit();
+                
             }
             else if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
             {
