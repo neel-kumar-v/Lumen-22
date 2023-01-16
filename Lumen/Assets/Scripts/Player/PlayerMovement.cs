@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     public bool isGrounded;
+
+    public UnityEvent onRespawn;
 
     public AudioManager audioManager;
     
@@ -80,15 +83,16 @@ public class PlayerMovement : MonoBehaviour
         if (transform.position.y <= -5f)
         {
             Debug.Log("Went Below");
-            transform.eulerAngles = new Vector3(0f, 90f, 0f);
             Reset();
         }
     }
 
     private void Reset()
     {
+        transform.eulerAngles = new Vector3(0f, 90f, 0f);
         transform.position = startPos;
         rb.velocity = Vector3.zero;
+        onRespawn.Invoke();
     }
   
     private void OnDrawGizmos() {

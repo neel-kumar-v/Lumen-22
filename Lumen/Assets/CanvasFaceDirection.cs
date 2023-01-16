@@ -1,11 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CanvasFaceDirection : MonoBehaviour
 {
     public Transform target;
     public float distance = 5f;
+    private Quaternion oldRotation;
+
+    public void Awake() {
+        oldRotation = transform.rotation;
+    }
 
     void FixedUpdate()
     {
@@ -19,5 +26,9 @@ public class CanvasFaceDirection : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             transform.rotation = rotation;
         }
+    }
+
+    public void RespawnUpdate() {
+        transform.rotation = oldRotation;
     }
 }
