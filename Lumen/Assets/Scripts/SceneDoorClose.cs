@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class SceneDoorClose : MonoBehaviour
 {
-    public MouseLook mouseLook;
+    [SerializeField] private GameObject doorTurnOn;
 
-    public PlayerMovement playerMovement;
-    // Start is called before the first frame update
     [SerializeField] private GameObject trigger;
     
     private void OnTriggerEnter(Collider other) {
         // if (locked) return;
         if (!other.CompareTag("Player")) return;
-        playerMovement.turnOff = true;
-        mouseLook.turnOffLook = true;
+        doorTurnOn.SetActive(true);
         trigger.SetActive(false);
     }
 }
