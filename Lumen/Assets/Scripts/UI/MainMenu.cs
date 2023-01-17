@@ -8,12 +8,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
     
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    public void PlayGame(string sceneName) {
+        SceneManager.LoadScene(sceneName);
     }
 
-    
+    public void Start() {
+        PlayerPrefs.SetFloat("turn speed", 18f);
+        PlayerPrefs.SetFloat("sensitivity", 150f);
+    }
 
     public void QuitGame()
     {

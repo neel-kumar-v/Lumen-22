@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using TMPro;
+using UnityEngine.Events;
 
 public class ShootLaser : MonoBehaviour {
     public Material material;
@@ -19,17 +20,15 @@ public class ShootLaser : MonoBehaviour {
     public GameObject gameObj;
     public bool laserOn = true;
     public AudioManager audioManager;
-    public Animator anim;
+    public Animator doorAnimator;
     public GameObject text;
+
+    [Space(10)] public UnityEvent onHit;
     
     void Start()
     {
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
-        }
-
+        if (audioManager == null) Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
         StartCoroutine(LateStart());
     }
 
@@ -43,6 +42,11 @@ public class ShootLaser : MonoBehaviour {
     private void Update() {
         if (beam != null) Destroy(beam.laserObject);
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, 
-            laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn, anim, text);
+            laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn, doorAnimator, text);
+    }
+
+    public void OnDoorHit() {
+        if (onHit == null) return;
+        onHit.Invoke();
     }
 }
