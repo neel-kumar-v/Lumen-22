@@ -15,6 +15,8 @@ public class PlayerPickUpDrop : MonoBehaviour
     [SerializeField] private PickUpLaser laser;
     public float turnSpeed = 10f;
 
+    public static bool updateNecessary = false;
+
     private void Start() {
         laser = GetComponent<PickUpLaser>();
         UpdateTurnSpeed();
@@ -39,6 +41,7 @@ public class PlayerPickUpDrop : MonoBehaviour
                     if (raycastHit.transform.TryGetComponent(out objectGrabbable))
                     {
                         objectGrabbable.Grab(objectGrabPointTransform);
+                        updateNecessary = true;
                         // Debug.Log(objectGrabPointTransform.position);
                     }
 
@@ -48,6 +51,7 @@ public class PlayerPickUpDrop : MonoBehaviour
             else
             {
                 objectGrabbable.Drop();
+                updateNecessary = false;
                 laser.pickedUpObject = null;
                 objectGrabbable = null;
             }
