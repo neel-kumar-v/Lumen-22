@@ -42,14 +42,10 @@ public class ShootLaser : MonoBehaviour {
     }
 
     private void Update() {
-        if (!PlayerPickUpDrop.updateNecessary) {
-            Debug.Log("laser not updating");
-            return;
-        }
+        if (!PlayerPickUpDrop.updateNecessary) return;
         if (beam != null) Destroy(beam.laserObject);
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, 
             laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn, doorAnimator, text);
-        Debug.Log("laser updating");
     }
 
     public void OnDoorHit() {
