@@ -7,7 +7,8 @@ using UnityEngine;
 public class CanvasFaceDirection : MonoBehaviour
 {
     public Transform target;
-    public float distance = 5f;
+    public float minDistance = 5f;
+    public float maxDistance = 10f;
     private Quaternion oldRotation;
 
     public void Awake() {
@@ -18,7 +19,7 @@ public class CanvasFaceDirection : MonoBehaviour
     {
 
         float dist = Vector3.Distance(transform.position, target.position);
-        if (dist > distance)
+        if (dist > minDistance && dist < maxDistance)
         {
             Vector3 relativePos = transform.position - target.position;
 

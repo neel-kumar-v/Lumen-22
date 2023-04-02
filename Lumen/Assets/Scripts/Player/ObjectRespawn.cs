@@ -9,14 +9,15 @@ public class ObjectRespawn : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         startPos = transform.position;
+        InvokeRepeating("Reset", 5f, 1f);
     }
 
     // Update is called once per frame
     void Update() {
-        if (transform.position.y <= -5f) Reset();
+        
     }
 
     private void Reset() {
-        transform.position = startPos;
+        if (transform.position.y <= -5f) transform.position = startPos;
     }
 }
