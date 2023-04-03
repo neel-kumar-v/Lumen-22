@@ -7,13 +7,14 @@ public class ObjectRespawn : MonoBehaviour {
     private Vector3 startPos;
     public float height;
     public GameObject[] mirrors;
-    public GameObject[] floors;
+    public GameObject[] floorsArray;
 
     // Start is called before the first frame update
     void Start() {
         startPos = transform.position;
         mirrors = GameObject.FindGameObjectsWithTag("Mirror");
-        floors = Floors.floors;
+        floorsArray = Floors.floors;
+        Debug.Log(floorsArray);
         InvokeRepeating("CheckForRespawn", 5f, 1f);
     }
     
@@ -27,7 +28,7 @@ public class ObjectRespawn : MonoBehaviour {
     {
         float closestDistance = float.PositiveInfinity;
         GameObject closestGameObject = null;
-        foreach (GameObject floor in floors)
+        foreach (GameObject floor in floorsArray)
         {
             float distance = Vector3.Distance(transform.position, floor.transform.position);
             if (distance < closestDistance)

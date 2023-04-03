@@ -570,7 +570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1567696481}
-  distance: 8
+  minDistance: 5
+  maxDistance: 10
 --- !u!1 &31077788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 162146, guid: 5bceb99c9fa1f2a4bb9692e518bec46c,
@@ -1176,7 +1177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1567696481}
-  distance: 8
+  minDistance: 5
+  maxDistance: 10
 --- !u!1 &89902211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,7 +2169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1567696481}
-  distance: 8.01
+  minDistance: 5
+  maxDistance: 10
 --- !u!1 &190614836
 GameObject:
   m_ObjectHideFlags: 0
@@ -4910,7 +4913,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1567696481}
-  distance: 4
+  minDistance: 5
+  maxDistance: 10
 --- !u!1001 &434032192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8058,7 +8062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1567696481}
-  distance: 8
+  minDistance: 5
+  maxDistance: 10
 --- !u!1 &785203413
 GameObject:
   m_ObjectHideFlags: 0
@@ -9507,7 +9512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1567696481}
-  distance: 8
+  minDistance: 5
+  maxDistance: 10
 --- !u!1001 &904790747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14369,6 +14375,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5cd29a93d7ae2d488fa0376d0d08462, type: 3}
+--- !u!1001 &1564315744
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.396452
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -17.832335
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.8666124
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127432, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190435100132127438, guid: 110a579adcbfe9d4b942fc9577124a6d,
+        type: 3}
+      propertyPath: m_Name
+      value: FloorManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 110a579adcbfe9d4b942fc9577124a6d, type: 3}
 --- !u!1 &1567152722
 GameObject:
   m_ObjectHideFlags: 0
@@ -15310,7 +15385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1567696481}
-  distance: 8
+  minDistance: 5
+  maxDistance: 10
 --- !u!1001 &1657449781
 PrefabInstance:
   m_ObjectHideFlags: 0

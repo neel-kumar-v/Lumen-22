@@ -6,7 +6,7 @@ public class Floors : MonoBehaviour {
     public static GameObject[] floors;
     
     // Start is called before the first frame update
-    public void Start() {
+    public void Awake() {
         floors = FindGameObjectsWithLayer(6);
     }
     GameObject[] FindGameObjectsWithLayer (int layer) {
@@ -22,4 +22,5 @@ public class Floors : MonoBehaviour {
         } 
         return goList.ToArray(); 
     }
+  
 }
