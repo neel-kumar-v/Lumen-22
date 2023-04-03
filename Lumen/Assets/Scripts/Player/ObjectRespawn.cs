@@ -13,15 +13,10 @@ public class ObjectRespawn : MonoBehaviour {
     void Start() {
         startPos = transform.position;
         mirrors = GameObject.FindGameObjectsWithTag("Mirror");
-        floors = FindGameObjectsWithLayer(6);
+        floors = Floors.floors;
         InvokeRepeating("CheckForRespawn", 5f, 1f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public void CheckForRespawn() {
         height = FindClosestFloor().transform.position.y;
@@ -31,7 +26,7 @@ public class ObjectRespawn : MonoBehaviour {
     private GameObject FindClosestFloor()
     {
         float closestDistance = float.PositiveInfinity;
-        GameObject closestGameObject = new GameObject();
+        GameObject closestGameObject = null;
         foreach (GameObject floor in floors)
         {
             float distance = Vector3.Distance(transform.position, floor.transform.position);
@@ -45,19 +40,7 @@ public class ObjectRespawn : MonoBehaviour {
         return closestGameObject;
     }
 
-    GameObject[] FindGameObjectsWithLayer (int layer) {
-        GameObject[] goArray = FindObjectsOfType(typeof(GameObject)) as GameObject[]; 
-        List<GameObject> goList = new List<GameObject>(); 
-        for (int i = 0; i < goArray.Length; i++) { 
-            if (goArray[i].layer == layer) { 
-                goList.Add(goArray[i]); 
-            } 
-        } 
-        if (goList.Count == 0) {
-            return null; 
-        } 
-        return goList.ToArray(); 
-    }
+    
     
     // void OnCollisionEnter(Collision collision)
     // {
