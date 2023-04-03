@@ -29,6 +29,8 @@ public class ShootLaser : MonoBehaviour {
     {
         audioManager = AudioManager.instance;
         if (audioManager == null) Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
+        beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, 
+                    laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn, doorAnimator, text);
         StartCoroutine(LateStart());
     }
 
@@ -40,6 +42,7 @@ public class ShootLaser : MonoBehaviour {
     }
 
     private void Update() {
+        if (!PlayerPickUpDrop.updateNecessary) return;
         if (beam != null) Destroy(beam.laserObject);
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, 
             laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn, doorAnimator, text);

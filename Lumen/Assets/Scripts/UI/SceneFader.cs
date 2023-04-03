@@ -29,7 +29,8 @@ public class SceneFader : MonoBehaviour
         }
     }
 
-    IEnumerator FadeOut(int scene){
+    IEnumerator FadeOut(int scene) {
+        Time.timeScale = 1f;
         float t1 = 0f;
 
         while(t1 < 1f){
