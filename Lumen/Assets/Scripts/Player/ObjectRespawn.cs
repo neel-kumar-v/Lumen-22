@@ -41,7 +41,7 @@ public class ObjectRespawn : MonoBehaviour {
 
     GameObject[] FindGameObjectsWithLayer (int layer) {
         GameObject[] goArray = FindObjectsOfType(typeof(GameObject)) as GameObject[]; 
-        List goList = new List<GameObject>(); 
+        List<GameObject> goList = new List<GameObject>(); 
         for (int i = 0; i < goArray.Length; i++) { 
             if (goArray[i].layer == layer) { 
                 goList.Add(goArray[i]); 
