@@ -66,6 +66,12 @@ public class PlayerMovement : MonoBehaviour
             speed = 20f;
             controller.Move(move * speed * Time.deltaTime);
         }
+        
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = 12f;
+            controller.Move(move * speed * Time.deltaTime);
+        }
 
         if(Input.GetButtonDown("Jump") && isGrounded) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);

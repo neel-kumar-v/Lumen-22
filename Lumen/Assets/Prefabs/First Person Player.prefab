@@ -118,7 +118,7 @@ MonoBehaviour:
   objectGrabPointTransform: {fileID: 7523075527527482826}
   mat: {fileID: 2100000, guid: 7efa7c72051a6b743a21f1a4148145d0, type: 2}
   laser: {fileID: 7523075526162763304}
-  turnSpeed: 20
+  turnSpeed: 150
 --- !u!114 &7523075526162763304
 MonoBehaviour:
   m_ObjectHideFlags: 0
