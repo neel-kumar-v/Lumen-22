@@ -3598,6 +3598,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5cd29a93d7ae2d488fa0376d0d08462, type: 3}
+--- !u!114 &464919346 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6831266463881435154, guid: 54b691fc174853b48aa4451d99618dbb,
+    type: 3}
+  m_PrefabInstance: {fileID: 630081322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52ec99725959e84f968b711243af7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &471261128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10941,23 +10953,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1881896136}
+  - {fileID: 672247049179507338}
   - {fileID: 368231719}
   - {fileID: 723119389}
   - {fileID: 1224687577}
+  - {fileID: 1558397097}
+  - {fileID: 927798771}
   - {fileID: 796855688}
   - {fileID: 2071263028}
   - {fileID: 2068157732}
-  - {fileID: 1558397097}
-  - {fileID: 672247049179507338}
-  - {fileID: 603806175}
-  - {fileID: 10240358}
-  - {fileID: 916250035}
-  - {fileID: 927798771}
   - {fileID: 2000095001}
   - {fileID: 1588313330}
+  - {fileID: 603806175}
   - {fileID: 222510215}
-  - {fileID: 409182612}
   - {fileID: 1030165077}
+  - {fileID: 409182612}
+  - {fileID: 916250035}
+  - {fileID: 10240358}
   - {fileID: 1969828829}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -13410,7 +13422,7 @@ Transform:
   - {fileID: 672247049179585090}
   - {fileID: 672247049179615886}
   m_Father: {fileID: 1707678187}
-  m_RootOrder: 8
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &672247049179507624
 Transform:
@@ -14238,7 +14250,7 @@ PrefabInstance:
         type: 3}
       propertyPath: audioManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 464919346}
     - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
         type: 3}
       propertyPath: doorAnimator
