@@ -5,16 +5,50 @@ using UnityEngine.PlayerLoop;
 
 public class ObjectRespawn : MonoBehaviour {
     private Vector3 startPos;
-    
+    public float height;
+    public GameObject[] mirrors;
+    public GameObject[] floorsArray;
+
     // Start is called before the first frame update
     void Start() {
         startPos = transform.position;
+        mirrors = GameObject.FindGameObjectsWithTag("Mirror");
+        floorsArray = Floors.floors;
+        Debug.Log(floorsArray);
+        InvokeRepeating("CheckForRespawn", 5f, 1f);
+    }
+    
+
+    public void CheckForRespawn() {
+        height = FindClosestFloor().transform.position.y;
+        if (transform.position.y < height) Reset();
     }
 
-    // Update is called once per frame
-    void Update() {
-        if (transform.position.y <= -5f) Reset();
+    private GameObject FindClosestFloor()
+    {
+        float closestDistance = float.PositiveInfinity;
+        GameObject closestGameObject = null;
+        foreach (GameObject floor in floorsArray)
+        {
+            float distance = Vector3.Distance(transform.position, floor.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestGameObject = floor;
+            }
+        }
+
+        return closestGameObject;
     }
+
+    
+    
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     if (transform.position.y < collision.gameObject.layer = 6){
+    //         
+    //     }
+    // }
 
     private void Reset() {
         transform.position = startPos;
