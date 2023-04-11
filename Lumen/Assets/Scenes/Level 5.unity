@@ -3435,6 +3435,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorWithHallway
       objectReference: {fileID: 0}
+    - target: {fileID: 6913809731432602353, guid: 39c8812db92f8d54ead90a210252eec5,
+        type: 3}
+      propertyPath: nextSceneLoad
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39c8812db92f8d54ead90a210252eec5, type: 3}
 --- !u!1001 &1822986905
