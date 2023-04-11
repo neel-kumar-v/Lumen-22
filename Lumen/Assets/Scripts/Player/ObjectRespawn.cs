@@ -14,8 +14,7 @@ public class ObjectRespawn : MonoBehaviour {
         startPos = transform.position;
         mirrors = GameObject.FindGameObjectsWithTag("Mirror");
         floorsArray = Floors.floors;
-        Debug.Log(floorsArray);
-        InvokeRepeating("CheckForRespawn", 5f, 1f);
+        InvokeRepeating("CheckForRespawn", 5f, 2f + Random.Range(-0.25f, 0.25f));
     }
     
 
