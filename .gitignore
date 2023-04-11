@@ -76,3 +76,10 @@ crashlytics-build.properties
 *.wasm
 *.txt
 *.meta
+Lumen/Assets/Scenes/Level 3.unity.meta
+Lumen/Assets/Scenes/Level 3.unity.meta
+Lumen/Assets/Scenes/Level 4.unity.meta
+Lumen/Assets/Scenes/Level 5.unity.meta
+*.meta
+Lumen/ProjectSettings/EditorBuildSettings.asset
+Lumen/Assets/Skybox/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Materials/New Lighting Settings.lighting
