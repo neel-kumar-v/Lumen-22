@@ -74,35 +74,34 @@ public class LaserBeam
         }
     }
 
-    void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width)
+    void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width) {
+        GameObject colliderGameObject = hitInfo.collider.gameObject;
+        if (colliderGameObject.CompareTag("Door"))
         {
-            if (hitInfo.collider.gameObject.CompareTag("Door"))
-            {
-                // Check if the width of the beam is greater than or equal to the intensity threshold
-                if (!(width >= intensityThreshold)) return;
-                shootLaser.doorTurnOff.SetActive(false);
-                shootLaser.laserOn = false;
-                shootLaser.audioManager.StopSound("LaserHum");
-                shootLaser.audioManager.StopSound("LaserElectrical");
-                shootLaser.audioManager.PlaySound("Crash");
-                text.SetActive(true);
-                shootLaser.doorAnimator.Play("TextShow");
-                shootLaser.OnDoorHit();
-                
-            }
-            else if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
-            {
-                Vector3 pos = hitInfo.point;
-                Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
-                CastRay(pos, dir, laser, laserDistance, width - decrementValue);
-            }
-            else
-            {
-                laserIndices.Add(hitInfo.point);
-                UpdateLaser();
-            }
-
+            // Check if the width of the beam is greater than or equal to the intensity threshold
+            if (!(width >= intensityThreshold)) return;
+            shootLaser.doorTurnOff.SetActive(false);
+            shootLaser.laserOn = false;
+            shootLaser.audioManager.StopSound("LaserHum");
+            shootLaser.audioManager.StopSound("LaserElectrical");
+            shootLaser.audioManager.PlaySound("Crash");
+            text.SetActive(true);
+            shootLaser.doorAnimator.Play("TextShow");
+            shootLaser.OnDoorHit();
+            
         }
+        else if (colliderGameObject.CompareTag("Mirror") && laserDistance != 1000)
+        {
+            Vector3 pos = hitInfo.point;
+            Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
+            CastRay(pos, dir, laser, laserDistance, width - decrementValue);
+        }
+        else
+        {
+            laserIndices.Add(hitInfo.point);
+            UpdateLaser();
+        }
+    }
 
         void UpdateLaser()
         {
