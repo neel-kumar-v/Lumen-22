@@ -87,8 +87,8 @@ public class ObjectGrabbable : MonoBehaviour
             objectRigidbody.useGravity = true;
         }
 
-        gameObject.transform.localScale = normalScale;
-        boxCollider.size = normalColliderScale;
+        // gameObject.transform.localScale = normalScale;
+        // boxCollider.size = normalColliderScale;
     }
 
     private void Update() {
