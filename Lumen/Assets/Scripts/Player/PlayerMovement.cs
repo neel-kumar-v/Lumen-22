@@ -39,7 +39,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Update()
     {
-        if(!IsOwner) return;
+        // if(!IsOwner) return;
 
         Move();
 
