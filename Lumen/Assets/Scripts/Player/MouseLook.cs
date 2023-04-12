@@ -16,6 +16,8 @@ public class MouseLook : MonoBehaviour
     public float topView;
     [Range(0f, 50f)]
     public float bottomView;
+
+    public static bool paused = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class MouseLook : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        if(paused) return;
         float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
 
