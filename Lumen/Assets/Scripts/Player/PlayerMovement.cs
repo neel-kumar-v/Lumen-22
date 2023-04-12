@@ -1,8 +1,9 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public CharacterController controller;
     public float speed = 12f;
@@ -24,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 startPos;
     
     [SerializeField] private float acceleration = 0.5f;
+    
+   
 
     private void Start()
     {
@@ -36,16 +39,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        
+        if(!IsOwner) return;
 
         Move();
 
         Jump();
 
-        if (IsMoving())
-        {
-            audioManager.PlaySound("Footsteps");
-        }
+        if (IsMoving()) audioManager.PlaySound("Footsteps");
 
         if (!(transform.position.y <= -5f)) return;
         Debug.Log("Went Below");

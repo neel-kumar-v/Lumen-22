@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using Unity.Netcode;
 
 public class LaserBeam
 {
@@ -56,6 +57,8 @@ public class LaserBeam
         this.intensityThreshold = intensityThreshold;
         CastRay(pos, dir, laser, laserDistance, width);
     }
+    
+
 
 
     void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width) {
