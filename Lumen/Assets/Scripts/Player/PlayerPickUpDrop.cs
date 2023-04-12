@@ -19,7 +19,6 @@ public class PlayerPickUpDrop : MonoBehaviour
     private Quaternion initialRotation;
     private void Start() {
         
-        laser = GetComponent<PickUpLaser>();
         UpdateTurnSpeed();
         playerCamera = Camera.main;
     }
