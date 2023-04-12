@@ -5,6 +5,8 @@ using UnityEngine;
 public class KeepAspectRatio : MonoBehaviour
 {
     Camera cam;
+    [SerializeField] private bool splitLeft = false;
+    [SerializeField] private bool splitRight = false;
      void Start() {
          cam = GetComponent<Camera>();
      }
@@ -19,10 +21,10 @@ public class KeepAspectRatio : MonoBehaviour
          if (scaleheight < 1.0f)
          {
              Rect rect = cam.rect;
- 
-             rect.width = 1.0f;
+
+             rect.width = (splitLeft || splitRight) ? 0.5f : 1.0f;
              rect.height = scaleheight;
-             rect.x = 0;
+             rect.x = splitRight ? 0.5f : 0;
              rect.y = (1.0f - scaleheight) / 2.0f;
  
              cam.rect = rect;
