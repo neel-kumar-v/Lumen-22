@@ -25,6 +25,8 @@ public class PlayerMovement : NetworkBehaviour
     private Vector3 startPos;
     
     [SerializeField] private float acceleration = 0.5f;
+
+    public bool isSecondPlayer = false;
     
    
 
@@ -41,7 +43,12 @@ public class PlayerMovement : NetworkBehaviour
     {
         // if(!IsOwner) return;
 
-        Move();
+        if (isSecondPlayer) {
+            MoveSecond();
+        }
+        else {
+            Move();
+        }
 
         Jump();
 
@@ -59,6 +66,14 @@ public class PlayerMovement : NetworkBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? Mathf.Lerp(speed, sprintSpeed, acceleration) : speed;
         controller.Move(move * currentSpeed * Time.deltaTime);
+    }
+    private void MoveSecond() {
+        // // float x = Input.GetAxis("Horizontal2");
+        // // float z = Input.GetAxis("Vertical2");
+        //
+        // Vector3 move = transform.right * x + transform.forward * z;
+        // float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? Mathf.Lerp(speed, sprintSpeed, acceleration) : speed;
+        // controller.Move(move * currentSpeed * Time.deltaTime);
     }
 
     private void Jump() {
