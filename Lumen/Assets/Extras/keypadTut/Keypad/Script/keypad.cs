@@ -40,6 +40,7 @@ public class keypad : MonoBehaviour
     private float btnClicked = 0;
     private float numOfGuesses;
     [SerializeField] private ShootLaser shootLaser;
+    public static bool paused = false;
 
     public Camera cam;
     
@@ -66,7 +67,8 @@ public class keypad : MonoBehaviour
                 text.SetActive(true);
                 shootLaser.doorAnimator.Play("TextShow");
                 shootLaser.OnDoorHit();
-                Time.timeScale = 1f; 
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 keypadScreen = false;
             }
             else
@@ -102,7 +104,10 @@ public class keypad : MonoBehaviour
                     if (selectionRender != null)
                     {
                         keypadScreen = true;
-                        Time.timeScale = 0.99f;
+                        Cursor.lockState = paused ? CursorLockMode.Locked : CursorLockMode.None;
+                        Time.timeScale = paused ? 1f : 0f;  // Time is stopped
+                        // now set paused to new state
+                        paused = !paused;
                     }
                 }
 
@@ -131,7 +136,8 @@ public class keypad : MonoBehaviour
                 keypadScreen = false;
                 input = "";
                 displayText.text = input.ToString();
-                Time.timeScale = 1f;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
 
             case "C": //CLEAR
