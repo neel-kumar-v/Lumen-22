@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using Unity.Netcode;
+using Unity.VisualScripting;
 
 public class LaserBeam
 {
@@ -22,6 +24,11 @@ public class LaserBeam
 
     private Animator doorAnimator;
 
+    private Canvas password;
+
+    private ParticleSystem particle1;
+    private ParticleSystem particle2;
+
     private GameObject text;
 
     private LayerMask mask;
@@ -29,7 +36,7 @@ public class LaserBeam
     // private ShootLaser audioElectric;
 
     public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width,
-        float decrementValue, float intensityThreshold, ShootLaser shootLaser, bool laserOn, Animator doorAnimator, GameObject text)
+        float decrementValue, float intensityThreshold, ShootLaser shootLaser, bool laserOn, Canvas password, ParticleSystem particle1, ParticleSystem particle2)
     {
         this.shootLaser = shootLaser;
         this.laser = new LineRenderer();
@@ -37,8 +44,9 @@ public class LaserBeam
         this.laserObject.tag = "Laser";
         this.laserObject.name = "Laser Beam";
         this.laserOn = laserOn;
-        this.doorAnimator = doorAnimator;
-        this.text = text;
+        this.password = password;
+        this.particle1 = particle1;
+        this.particle2 = particle2;
 
         this.pos = pos;
 
@@ -81,17 +89,28 @@ public class LaserBeam
         GameObject colliderGameObject = hitInfo.collider.gameObject;
         if (colliderGameObject.CompareTag("Door"))
         {
-            // Check if the width of the beam is greater than or equal to the intensity threshold
-            if (!(width >= intensityThreshold)) return;
-            shootLaser.doorTurnOff.SetActive(false);
-            shootLaser.laserOn = false;
-            shootLaser.audioManager.StopSound("LaserHum");
-            shootLaser.audioManager.StopSound("LaserElectrical");
-            shootLaser.audioManager.PlaySound("Crash");
-            text.SetActive(true);
-            shootLaser.doorAnimator.Play("TextShow");
-            shootLaser.OnDoorHit();
-            
+            if (hitInfo.collider.gameObject.CompareTag("Hologram"))
+            {
+                shootLaser.laserOn = false;
+                shootLaser.audioManager.StopSound("LaserHum");
+                shootLaser.audioManager.StopSound("LaserElectrical");
+                shootLaser.audioManager.PlaySound("Crash");
+                password.gameObject.SetActive(true);
+                particle1.gameObject.SetActive(false);
+                particle2.gameObject.SetActive(true);
+            }
+            else if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
+            {
+                Vector3 pos = hitInfo.point;
+                Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
+                CastRay(pos, dir, laser, laserDistance, width - decrementValue);
+            }
+            else
+            {
+                laserIndices.Add(hitInfo.point);
+                UpdateLaser();
+            }
+
         }
         else if (colliderGameObject.CompareTag("Mirror") && laserDistance != 1000)
         {

@@ -9,6 +9,7 @@ TagManager:
   - Canvas
   - Door
   - Laser
+  - Hologram
   layers:
   - Default
   - TransparentFX
