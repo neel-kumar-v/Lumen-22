@@ -39,13 +39,32 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(string _name)
     {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (sounds[i].name == _name)
-            {
-                sounds[i].Play();
-                return;
-            }
+        for (int i = 0; i < sounds.Length; i++) {
+            if (sounds[i].name != _name) continue;
+            sounds[i].Play();
+            return;
+        }
+        
+        // no sound with _name
+        Debug.LogWarning("AudioManager: Sound not found in list, " + _name);
+    }
+    public void PauseSound(string _name)
+    {
+        for (int i = 0; i < sounds.Length; i++) {
+            if (sounds[i].name != _name) continue;
+            sounds[i].Pause();
+            return;
+        }
+        
+        // no sound with _name
+        Debug.LogWarning("AudioManager: Sound not found in list, " + _name);
+    }
+    public void UnpauseSound(string _name)
+    {
+        for (int i = 0; i < sounds.Length; i++) {
+            if (sounds[i].name != _name) continue;
+            sounds[i].Unpause();
+            return;
         }
         
         // no sound with _name
@@ -54,15 +73,23 @@ public class AudioManager : MonoBehaviour
     
     public void StopSound(string _name)
     {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (sounds[i].name == _name)
-            {
-                sounds[i].Stop();
-                return;
-            }
+        for (int i = 0; i < sounds.Length; i++) {
+            if (sounds[i].name != _name) continue;
+            sounds[i].Stop();
+            return;
         }
         
+        // no sound with _name
+        Debug.LogWarning("AudioManager: Sound not found in list, " + _name);
+    }
+    public bool IsSoundPlaying(string _name)
+    {
+        for (int i = 0; i < sounds.Length; i++) {
+            if (sounds[i].name != _name) continue;
+            return sounds[i].IsPlaying();
+        }
+
+        return false;
         // no sound with _name
         Debug.LogWarning("AudioManager: Sound not found in list, " + _name);
     }

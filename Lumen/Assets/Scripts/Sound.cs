@@ -36,9 +36,19 @@ public class Sound
         source.loop = loop;
         source.Play();
     }
+    public void Pause() {
+        source.Pause();
+    }
+    public void Unpause() {
+        source.UnPause();
+    }
     
     public void Stop()
     {
         source.Stop();
+    }
+    public bool IsPlaying()
+    {
+        return source.isPlaying;
     }
 }

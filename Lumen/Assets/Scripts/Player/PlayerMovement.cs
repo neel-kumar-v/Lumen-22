@@ -38,7 +38,7 @@ public class PlayerMovement : NetworkBehaviour
         audioManager = AudioManager.instance;
         if (audioManager != null) return;
         Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
-
+        audioManager.PlaySound("Footsteps");
     }
 
     private void Update() {
@@ -60,8 +60,9 @@ public class PlayerMovement : NetworkBehaviour
         }
 
         Jump();
-
-        if (IsMoving()) audioManager.PlaySound("Footsteps");
+        Debug.Log(audioManager.IsSoundPlaying("Footsteps"));
+        if (IsMoving()) audioManager.UnpauseSound("Footsteps");
+        else audioManager.PauseSound("Footsteps");
 
         if (!(transform.position.y <= -5f)) return;
         Debug.Log("Went Below");
@@ -71,6 +72,7 @@ public class PlayerMovement : NetworkBehaviour
     private void Move() {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        Debug.Log($"{x}, {z}");
 
         Vector3 move = transform.right * x + transform.forward * z;
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? Mathf.Lerp(speed, sprintSpeed, acceleration) : speed;
@@ -97,7 +99,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private bool IsMoving()
     {
-        return !isGrounded && (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f);
+        return isGrounded && (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.3f || Mathf.Abs(Input.GetAxis("Vertical")) > 0f);
     }
 
     private void Reset()
