@@ -30,7 +30,7 @@ public class Options : MonoBehaviour
     public void SetSensitivity(float sensitivity) {
         float curveSensitivity = sensitivityCurve.Evaluate(sensitivity);
         mouseText.SetText("MOUSE SENSITIVITY: {0:0}", sensitivity);
-        Debug.Log(curveSensitivity);
+        Debug.Log($"{curveSensitivity}");
         PlayerPrefs.SetFloat("sensitivity", curveSensitivity); 
     }
     public void SetTurnSpeed(float turnSpeed) {

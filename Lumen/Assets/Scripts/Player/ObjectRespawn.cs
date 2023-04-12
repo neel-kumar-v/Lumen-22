@@ -14,8 +14,7 @@ public class ObjectRespawn : MonoBehaviour {
         startPos = transform.position;
         mirrors = GameObject.FindGameObjectsWithTag("Mirror");
         floorsArray = Floors.floors;
-        Debug.Log(floorsArray);
-        InvokeRepeating("CheckForRespawn", 5f, 1f);
+        InvokeRepeating("CheckForRespawn", 5f, 2f + Random.Range(-0.25f, 0.25f));
     }
     
 
@@ -31,11 +30,9 @@ public class ObjectRespawn : MonoBehaviour {
         foreach (GameObject floor in floorsArray)
         {
             float distance = Vector3.Distance(transform.position, floor.transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestGameObject = floor;
-            }
+            if (!(distance < closestDistance)) continue;
+            closestDistance = distance;
+            closestGameObject = floor;
         }
 
         return closestGameObject;

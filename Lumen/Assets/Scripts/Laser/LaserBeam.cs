@@ -58,27 +58,23 @@ public class LaserBeam
     }
 
 
-    void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width)
-    {
-        if (laserOn)
-        {
-            laserIndices.Add(pos);
-            Ray ray = new Ray(pos, dir);
-            RaycastHit hit;
+    void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser, float laserDistance, float width) {
+        if (!laserOn) return;
+        laserIndices.Add(pos);
+        Ray ray = new Ray(pos, dir);
+        RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, laserDistance, mask))
-            {
-                CheckHit(hit, dir, laser, laserDistance, width);
-            }
-
-            else
-            {
-                laserIndices.Add(ray.GetPoint(laserDistance));
-                UpdateLaser();
-            }
+        if (Physics.Raycast(ray, out hit, laserDistance, mask)) {
+            CheckHit(hit, dir, laser, laserDistance, width);
         }
 
-        void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width)
+        else {
+            laserIndices.Add(ray.GetPoint(laserDistance));
+            UpdateLaser();
+        }
+    }
+
+    void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width)
         {
             if (hitInfo.collider.gameObject.CompareTag("Door"))
             {
@@ -131,5 +127,5 @@ public class LaserBeam
         //     Gizmos.DrawLine(pos, pos + dir * 10);
         // }
 
-    }
+    
 }

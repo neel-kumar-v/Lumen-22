@@ -34,25 +34,25 @@ public class ObjectGrabbable : MonoBehaviour
         mat = GetComponent<MeshRenderer>().material;
         
         // Precalculating the shrink size 
-        normalScale = gameObject.transform.localScale;
-        scaleChange = new Vector3(scale, scale, scale);
-        shrinkScale = new Vector3(
-            normalScale.x / scaleChange.x,
-            normalScale.y / scaleChange.y,
-            normalScale.z / scaleChange.z
-        );
-        
-        // Precalculating the expanded box collider size
-        // We need to expand the box collider so that we cant put the box/mirror anywhere
-        // it wouldn't fit in its normal size
-        boxCollider = GetComponent<BoxCollider>();
-        normalColliderScale = boxCollider.size;
-        colliderScaleChange = new Vector3(colliderScale, colliderScale, colliderScale);
-        shrinkColliderScale = new Vector3(
-            normalColliderScale.x * colliderScaleChange.x,
-            normalColliderScale.y * colliderScaleChange.y,
-            normalColliderScale.z * colliderScaleChange.z
-        );
+        // normalScale = gameObject.transform.localScale;
+        // scaleChange = new Vector3(scale, scale, scale);
+        // shrinkScale = new Vector3(
+        //     normalScale.x / scaleChange.x,
+        //     normalScale.y / scaleChange.y,
+        //     normalScale.z / scaleChange.z
+        // );
+        //
+        // // Precalculating the expanded box collider size
+        // // We need to expand the box collider so that we cant put the box/mirror anywhere
+        // // it wouldn't fit in its normal size
+        // boxCollider = GetComponent<BoxCollider>();
+        // normalColliderScale = boxCollider.size;
+        // colliderScaleChange = new Vector3(colliderScale, colliderScale, colliderScale);
+        // shrinkColliderScale = new Vector3(
+        //     normalColliderScale.x * colliderScaleChange.x,
+        //     normalColliderScale.y * colliderScaleChange.y,
+        //     normalColliderScale.z * colliderScaleChange.z
+        // );
 
     }
 
@@ -64,8 +64,8 @@ public class ObjectGrabbable : MonoBehaviour
 
     public void Grab(Transform objectGrabPointTransform)
     {
-        gameObject.transform.localScale = shrinkScale;
-        boxCollider.size = shrinkColliderScale;
+        // gameObject.transform.localScale = shrinkScale;
+        // boxCollider.size = shrinkColliderScale;
         
         this.objectGrabPointTransform = objectGrabPointTransform;
         objectRigidbody.useGravity = false;
