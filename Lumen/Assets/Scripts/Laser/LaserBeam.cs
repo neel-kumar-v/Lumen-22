@@ -82,7 +82,9 @@ public class LaserBeam
         }
     }
 
-    void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width)
+    void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width) {
+        GameObject colliderGameObject = hitInfo.collider.gameObject;
+        if (colliderGameObject.CompareTag("Door"))
         {
             if (hitInfo.collider.gameObject.CompareTag("Hologram"))
             {
@@ -107,6 +109,18 @@ public class LaserBeam
             }
 
         }
+        else if (colliderGameObject.CompareTag("Mirror") && laserDistance != 1000)
+        {
+            Vector3 pos = hitInfo.point;
+            Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
+            CastRay(pos, dir, laser, laserDistance, width - decrementValue);
+        }
+        else
+        {
+            laserIndices.Add(hitInfo.point);
+            UpdateLaser();
+        }
+    }
 
         void UpdateLaser()
         {
