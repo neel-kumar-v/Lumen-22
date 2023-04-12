@@ -30,11 +30,9 @@ public class ObjectRespawn : MonoBehaviour {
         foreach (GameObject floor in floorsArray)
         {
             float distance = Vector3.Distance(transform.position, floor.transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestGameObject = floor;
-            }
+            if (!(distance < closestDistance)) continue;
+            closestDistance = distance;
+            closestGameObject = floor;
         }
 
         return closestGameObject;

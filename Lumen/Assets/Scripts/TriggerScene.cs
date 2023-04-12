@@ -14,15 +14,10 @@ public class TriggerScene : MonoBehaviour {
     
     void OnTriggerEnter(Collider collider) // can be Collider HardDick if you want.. I'm not judging you
     {
-        if (collider.gameObject.CompareTag("Player"))
-        {
-            
-            fader.FadeTo(nextSceneLoad);
-            
-            if(nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
-            {
-                PlayerPrefs.SetInt("levelAt", nextSceneLoad);
-            }
-        }
+        if (!collider.gameObject.CompareTag("Player")) return;
+        fader.FadeTo(nextSceneLoad);
+
+        if (nextSceneLoad <= PlayerPrefs.GetInt("levelAt")) return;
+        PlayerPrefs.SetInt("levelAt", nextSceneLoad);
     }
 }
