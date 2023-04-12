@@ -22,16 +22,16 @@ public class PlayerMovement : MonoBehaviour
     private AudioManager audioManager;
 
     private Vector3 startPos;
+    
+    [SerializeField] private float acceleration = 0.5f;
 
     private void Start()
     {
-        audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
-        }
-        
         startPos = transform.position;
+        audioManager = AudioManager.instance;
+        if (audioManager != null) return;
+        Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
+
     }
 
     private void Update()
@@ -47,11 +47,9 @@ public class PlayerMovement : MonoBehaviour
             audioManager.PlaySound("Footsteps");
         }
 
-        if (transform.position.y <= -5f)
-        {
-            Debug.Log("Went Below");
-            Reset();
-        }
+        if (!(transform.position.y <= -5f)) return;
+        Debug.Log("Went Below");
+        Reset();
     }
 
     private void Move() {
@@ -59,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : speed;
+        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? Mathf.Lerp(speed, sprintSpeed, acceleration) : speed;
         controller.Move(move * currentSpeed * Time.deltaTime);
     }
 
