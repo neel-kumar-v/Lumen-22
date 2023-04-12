@@ -12,7 +12,6 @@ public class PlayerPickUpDrop : MonoBehaviour
     private ObjectGrabbable objectGrabbable;
     private MeshRenderer rend;
     public Material mat;
-    [SerializeField] private PickUpLaser laser;
     public float turnSpeed = 10f;
     private Camera playerCamera;
 
@@ -99,13 +98,11 @@ public class PlayerPickUpDrop : MonoBehaviour
                         // Debug.Log(objectGrabPointTransform.position);
                     }
 
-                    laser.pickedUpObject = objectGrabPointTransform;
                 }
             }
             else {
                 objectGrabbable.Drop();
                 updateNecessary = false;
-                laser.pickedUpObject = null;
                 objectGrabbable = null;
             }
         }
