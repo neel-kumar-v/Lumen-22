@@ -61,7 +61,16 @@ public class PlayerMovement : NetworkBehaviour
 
         Jump();
 
-        if (IsMoving()) audioManager.PlaySound("Footsteps");
+        // if (IsMoving()) audioManager.PlaySound("Footsteps");
+        
+        if (isGrounded && velocity.x == 0)
+        {
+            audioManager.PlaySound("Footsteps");
+        }
+        else
+        {
+            return;
+        }
 
         if (!(transform.position.y <= -5f)) return;
         Debug.Log("Went Below");
@@ -95,10 +104,12 @@ public class PlayerMovement : NetworkBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private bool IsMoving()
-    {
-        return !isGrounded && (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f);
-    }
+    // private void CheckMovement()
+    // {
+    //     
+    //     
+    //     //return !isGrounded && (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f);
+    // }
 
     private void Reset()
     {
