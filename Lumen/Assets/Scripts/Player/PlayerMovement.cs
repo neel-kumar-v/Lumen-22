@@ -63,7 +63,7 @@ public class PlayerMovement : NetworkBehaviour
 
         // if (IsMoving()) audioManager.PlaySound("Footsteps");
         
-        if (isGrounded && velocity.x == 0)
+        if (isGrounded && velocity.x != 0)
         {
             audioManager.PlaySound("Footsteps");
         }
