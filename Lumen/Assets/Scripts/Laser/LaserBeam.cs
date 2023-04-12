@@ -27,8 +27,7 @@ public class LaserBeam
 
     private Canvas password;
 
-    private ParticleSystem particle1;
-    private ParticleSystem particle2;
+    private ParticleSystem particle;
 
     private GameObject text;
 
@@ -39,7 +38,7 @@ public class LaserBeam
     // private ShootLaser audioElectric;
 
     public LaserBeam(Vector3 pos, Vector3 dir, Material material, Gradient colors, float laserDistance, float width,
-        float decrementValue, float intensityThreshold, ShootLaser shootLaser, bool laserOn, Canvas password, ParticleSystem particle1, ParticleSystem particle2)
+        float decrementValue, float intensityThreshold, ShootLaser shootLaser, bool laserOn, Canvas password, ParticleSystem particle)
     {
         this.shootLaser = shootLaser;
         this.laser = new LineRenderer();
@@ -48,8 +47,7 @@ public class LaserBeam
         this.laserObject.name = "Laser Beam";
         this.laserOn = laserOn;
         this.password = password;
-        this.particle1 = particle1;
-        this.particle2 = particle2;
+        this.particle = particle;
 
         this.pos = pos;
 
@@ -113,8 +111,7 @@ public class LaserBeam
             {
                 Password();
                 shootLaser.audioManager.PlaySound("Crash");
-                particle1.gameObject.SetActive(false);
-                particle2.gameObject.SetActive(true);
+                particle.gameObject.SetActive(true);
                 Debug.Log("Hit");
                 firstHit = true;
             }

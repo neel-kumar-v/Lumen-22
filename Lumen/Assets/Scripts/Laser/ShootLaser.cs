@@ -23,8 +23,7 @@ public class ShootLaser : MonoBehaviour {
     public Animator doorAnimator;
     public GameObject text;
     public Canvas password;
-    public ParticleSystem particle1;
-    public ParticleSystem particle2;
+    public ParticleSystem particle;
 
     [Space(10)] public UnityEvent onHit;
     
@@ -33,7 +32,7 @@ public class ShootLaser : MonoBehaviour {
         audioManager = AudioManager.instance;
         if (audioManager == null) Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, 
-                    laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn, password, particle1, particle2);
+                    laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn, password, particle);
         StartCoroutine(LateStart());
     }
 
@@ -48,7 +47,7 @@ public class ShootLaser : MonoBehaviour {
         if (!PlayerPickUpDrop.updateNecessary) return;
         if (beam != null) Destroy(beam.laserObject);
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.forward, material, colors, laserDistance, laserWidth, 
-            laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn, password, particle1, particle2);
+            laserWidth * decrement, laserWidth - (decrement * mirrorCountThreshold), this, laserOn, password, particle);
     }
 
     public void OnDoorHit() {
