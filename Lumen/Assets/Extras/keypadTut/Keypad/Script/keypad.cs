@@ -104,10 +104,7 @@ public class keypad : MonoBehaviour
                     if (selectionRender != null)
                     {
                         keypadScreen = true;
-                        Cursor.lockState = paused ? CursorLockMode.Locked : CursorLockMode.None;
-                        Time.timeScale = paused ? 1f : 0f;  // Time is stopped
-                        // now set paused to new state
-                        paused = !paused;
+                        
                     }
                 }
 
@@ -118,10 +115,17 @@ public class keypad : MonoBehaviour
         if (keypadScreen)
         {
             objectToEnable.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
+            PlayerMovement.paused = true;
+            MouseLook.paused = true;  
         }
         else
         {
             objectToEnable.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            PlayerMovement.paused = false;
+            MouseLook.paused = false;  
+            
         }
 
     }

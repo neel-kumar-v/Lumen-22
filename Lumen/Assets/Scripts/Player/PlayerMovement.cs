@@ -27,6 +27,8 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float acceleration = 0.5f;
 
     public bool isSecondPlayer = false;
+
+    public static bool paused = false;
     
    
 
@@ -39,8 +41,15 @@ public class PlayerMovement : NetworkBehaviour
 
     }
 
-    private void Update()
-    {
+    private void Update() {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = gravity / 5;
+        }
+        controller.Move(velocity * Time.deltaTime);
+
+        if (paused) return;
         // if(!IsOwner) return;
 
         if (isSecondPlayer) {
@@ -77,11 +86,7 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     private void Jump() {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = gravity / 5;
-        }
+        
         if (Input.GetButtonDown("Jump") && isGrounded) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
@@ -97,10 +102,8 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Reset()
     {
-        transform.eulerAngles = new Vector3(0f, 90f, 0f);
-        transform.position = startPos;
-        velocity = Vector3.zero;
         onRespawn.Invoke();
+        
     }
 
     private void OnDrawGizmos()
