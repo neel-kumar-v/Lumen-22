@@ -66,7 +66,7 @@ public class keypad : MonoBehaviour
                 text.SetActive(true);
                 shootLaser.doorAnimator.Play("TextShow");
                 shootLaser.OnDoorHit();
-                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false; 
                 keypadScreen = false;
             }
             else
@@ -102,7 +102,7 @@ public class keypad : MonoBehaviour
                     if (selectionRender != null)
                     {
                         keypadScreen = true;
-                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true; 
                     }
                 }
 
@@ -113,6 +113,10 @@ public class keypad : MonoBehaviour
         if (keypadScreen)
         {
             objectToEnable.SetActive(true);
+        }
+        else
+        {
+            objectToEnable.SetActive(false);
         }
 
     }
@@ -127,7 +131,7 @@ public class keypad : MonoBehaviour
                 keypadScreen = false;
                 input = "";
                 displayText.text = input.ToString();
-                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false; 
                 break;
 
             case "C": //CLEAR

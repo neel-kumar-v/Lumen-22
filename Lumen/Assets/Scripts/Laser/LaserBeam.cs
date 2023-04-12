@@ -87,18 +87,18 @@ public class LaserBeam
 
     void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width) {
         GameObject colliderGameObject = hitInfo.collider.gameObject;
-        if (colliderGameObject.CompareTag("Door"))
+        
+        if (hitInfo.collider.gameObject.CompareTag("Hologram"))
         {
-            if (hitInfo.collider.gameObject.CompareTag("Hologram"))
-            {
-                shootLaser.laserOn = false;
-                shootLaser.audioManager.StopSound("LaserHum");
-                shootLaser.audioManager.StopSound("LaserElectrical");
-                shootLaser.audioManager.PlaySound("Crash");
-                password.gameObject.SetActive(true);
-                particle1.gameObject.SetActive(false);
-                particle2.gameObject.SetActive(true);
-            }
+            shootLaser.laserOn = false;
+            shootLaser.audioManager.StopSound("LaserHum");
+            shootLaser.audioManager.StopSound("LaserElectrical");
+            shootLaser.audioManager.PlaySound("Crash");
+            password.gameObject.SetActive(true);
+            particle1.gameObject.SetActive(false);
+            particle2.gameObject.SetActive(true);
+            Debug.Log("Hit");
+        }
             else if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
             {
                 Vector3 pos = hitInfo.point;
@@ -110,19 +110,6 @@ public class LaserBeam
                 laserIndices.Add(hitInfo.point);
                 UpdateLaser();
             }
-
-        }
-        else if (colliderGameObject.CompareTag("Mirror") && laserDistance != 1000)
-        {
-            Vector3 pos = hitInfo.point;
-            Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
-            CastRay(pos, dir, laser, laserDistance, width - decrementValue);
-        }
-        else
-        {
-            laserIndices.Add(hitInfo.point);
-            UpdateLaser();
-        }
     }
 
         void UpdateLaser()
