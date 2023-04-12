@@ -63,7 +63,6 @@ public class keypad : MonoBehaviour
                 shootLaser.laserOn = false;
                 shootLaser.audioManager.StopSound("LaserHum");
                 shootLaser.audioManager.StopSound("LaserElectrical");
-                shootLaser.audioManager.PlaySound("Crash");
                 text.SetActive(true);
                 shootLaser.doorAnimator.Play("TextShow");
                 shootLaser.OnDoorHit();

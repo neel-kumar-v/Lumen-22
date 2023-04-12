@@ -110,13 +110,17 @@ public class LaserBeam
             if (hitInfo.collider.gameObject.CompareTag("Hologram"))
             {
                 Password();
-                shootLaser.audioManager.PlaySound("Crash");
                 particle.gameObject.SetActive(true);
                 Debug.Log("Hit");
                 firstHit = true;
+                if (firstHit)
+                {
+                    shootLaser.audioManager.PlaySound("Crash");
+                    return;
+                }
             }
         }
-        
+
         if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
         {
             Vector3 pos = hitInfo.point;
