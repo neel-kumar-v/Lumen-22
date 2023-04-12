@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
@@ -30,6 +31,8 @@ public class LaserBeam
     private ParticleSystem particle2;
 
     private GameObject text;
+
+    private bool firstHit = false;
 
     private LayerMask mask;
     // private ShootLaser audioHum;
@@ -84,35 +87,40 @@ public class LaserBeam
             UpdateLaser();
         }
     }
+    
+    IEnumerator Password()
+    {
+        //Print the time of when the function is first called.
+        password.gameObject.SetActive(true);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
+
+        //After we have waited 5 seconds print the time again.
+        password.gameObject.SetActive(false);
+    }
+
+    // shootLaser.laserOn = false;
+    // shootLaser.audioManager.StopSound("LaserHum");
+    // shootLaser.audioManager.StopSound("LaserElectrical");
 
     void CheckHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser, float laserDistance, float width) {
         GameObject colliderGameObject = hitInfo.collider.gameObject;
-        if (colliderGameObject.CompareTag("Door"))
+
+        if (!firstHit)
         {
             if (hitInfo.collider.gameObject.CompareTag("Hologram"))
             {
-                shootLaser.laserOn = false;
-                shootLaser.audioManager.StopSound("LaserHum");
-                shootLaser.audioManager.StopSound("LaserElectrical");
+                Password();
                 shootLaser.audioManager.PlaySound("Crash");
-                password.gameObject.SetActive(true);
                 particle1.gameObject.SetActive(false);
                 particle2.gameObject.SetActive(true);
+                Debug.Log("Hit");
+                firstHit = true;
             }
-            else if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
-            {
-                Vector3 pos = hitInfo.point;
-                Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
-                CastRay(pos, dir, laser, laserDistance, width - decrementValue);
-            }
-            else
-            {
-                laserIndices.Add(hitInfo.point);
-                UpdateLaser();
-            }
-
         }
-        else if (colliderGameObject.CompareTag("Mirror") && laserDistance != 1000)
+        
+        if (hitInfo.collider.gameObject.CompareTag("Mirror") && laserDistance != 1000)
         {
             Vector3 pos = hitInfo.point;
             Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
