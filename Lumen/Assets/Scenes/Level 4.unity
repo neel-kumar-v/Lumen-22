@@ -3082,6 +3082,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PasswordRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 7106539933916676208, guid: 50064b43c0cfbfe4b9569f8cd9de067f,
+        type: 3}
+      propertyPath: m_text
+      value: 7092
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50064b43c0cfbfe4b9569f8cd9de067f, type: 3}
 --- !u!198 &445013479 stripped
