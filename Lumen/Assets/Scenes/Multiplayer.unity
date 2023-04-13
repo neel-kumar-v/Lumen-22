@@ -40430,6 +40430,7 @@ MonoBehaviour:
   mouseSens: 90
   playerBody: {fileID: 7523075527785198412}
   centerDot: {fileID: 0}
+  isSecondPlayer: 0
   topView: -50
   bottomView: 50
 --- !u!114 &7523075526382061547
@@ -40575,6 +40576,7 @@ MonoBehaviour:
   mouseSens: 90
   playerBody: {fileID: 7523075527615724929}
   centerDot: {fileID: 0}
+  isSecondPlayer: 1
   topView: -50
   bottomView: 50
 --- !u!20 &7523075526871353642
@@ -40853,6 +40855,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 7523075527615724959}
+  keyboardActions:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  controllerActions:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   speed: 6.3
   sprintSpeed: 20
   groundCheck: {fileID: 7523075527705593861}
@@ -40995,6 +41015,7 @@ GameObject:
   - component: {fileID: 4152194319340959124}
   - component: {fileID: 977197851}
   - component: {fileID: 8837570510783618873}
+  - component: {fileID: 8837570510783618874}
   m_Layer: 3
   m_Name: First Person Player
   m_TagString: Player
@@ -41052,6 +41073,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 7523075527785198418}
+  keyboardActions:
+    m_Name: Keyboard Actions
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: df8cce4f-09e7-4d45-add5-830919297eca
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  controllerActions:
+    m_Name: Controller Actions
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ffbe88eb-baf7-415b-9c63-19a306448ff4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   speed: 6.3
   sprintSpeed: 20
   groundCheck: {fileID: 7523075527762609864}
@@ -41184,6 +41223,36 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
+--- !u!114 &8837570510783618874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7523075527785198413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: 0}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!114 &8837570510860816884
 MonoBehaviour:
   m_ObjectHideFlags: 0

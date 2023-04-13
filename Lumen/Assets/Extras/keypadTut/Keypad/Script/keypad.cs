@@ -82,80 +82,80 @@ public class keypad : MonoBehaviour
         }
 
     }
+    //
+    // void OnGUI()
+    // {
+    //     // Action for clicking keypad( GameObject ) on screen
+    //     // if (Input.GetKeyDown(KeyCode.E))
+    //     // {
+    //     //     RaycastHit hit;
+    //     //     Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+    //     //
+    //     //     if (Physics.Raycast(ray, out hit, 100.0f))
+    //     //     {
+    //     //         var selection = hit.transform;
+    //     //
+    //     //         if (selection.CompareTag("keypad")) // Tag on the gameobject - Note the gameobject also needs a box collider
+    //     //         {
+    //     //             keypadScreen = true;
+    //     //
+    //     //             var selectionRender = selection.GetComponent<Renderer>();
+    //     //             if (selectionRender != null)
+    //     //             {
+    //     //                 keypadScreen = true;
+    //     //                 
+    //     //             }
+    //     //         }
+    //     //
+    //     //     }
+    //     }
+    //
+    //     // // Disable sections when keypadScreen is set to true
+    //     // if (keypadScreen)
+    //     // {
+    //     //     objectToEnable.SetActive(true);
+    //     //     Cursor.lockState = CursorLockMode.Confined;
+    //     //     PlayerMovement.paused = true;
+    //     //     MouseLook.paused = true;  
+    //     // }
+    //     // else
+    //     // {
+    //     //     objectToEnable.SetActive(false);
+    //     //     Cursor.lockState = CursorLockMode.Locked;
+    //     //     PlayerMovement.paused = false;
+    //     //     MouseLook.paused = false;  
+    //     //     
+    //     // }
+    //
+    // }
 
-    void OnGUI()
-    {
-        // Action for clicking keypad( GameObject ) on screen
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            RaycastHit hit;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit, 100.0f))
-            {
-                var selection = hit.transform;
-
-                if (selection.CompareTag("keypad")) // Tag on the gameobject - Note the gameobject also needs a box collider
-                {
-                    keypadScreen = true;
-
-                    var selectionRender = selection.GetComponent<Renderer>();
-                    if (selectionRender != null)
-                    {
-                        keypadScreen = true;
-                        
-                    }
-                }
-
-            }
-        }
-
-        // Disable sections when keypadScreen is set to true
-        if (keypadScreen)
-        {
-            objectToEnable.SetActive(true);
-            Cursor.lockState = CursorLockMode.Confined;
-            PlayerMovement.paused = true;
-            MouseLook.paused = true;  
-        }
-        else
-        {
-            objectToEnable.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            PlayerMovement.paused = false;
-            MouseLook.paused = false;  
-            
-        }
-
-    }
-
-    public void ValueEntered(string valueEntered)
-    {
-        switch (valueEntered)
-        {
-            case "Q": // QUIT
-                objectToEnable.SetActive(false);
-                btnClicked = 0;
-                keypadScreen = false;
-                input = "";
-                displayText.text = input.ToString();
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                break;
-
-            case "C": //CLEAR
-                input = "";
-                btnClicked = 0;// Clear Guess Count
-                displayText.text = input.ToString();
-                break;
-
-            default: // Buton clicked add a variable
-                btnClicked++; // Add a guess
-                input += valueEntered;
-                displayText.text = input.ToString();
-                break;
-        }
-
-
-    }
+    // public void ValueEntered(string valueEntered)
+    // {
+    //     switch (valueEntered)
+    //     {
+    //         case "Q": // QUIT
+    //             objectToEnable.SetActive(false);
+    //             btnClicked = 0;
+    //             keypadScreen = false;
+    //             input = "";
+    //             displayText.text = input.ToString();
+    //             Cursor.visible = false;
+    //             Cursor.lockState = CursorLockMode.Locked;
+    //             break;
+    //
+    //         case "C": //CLEAR
+    //             input = "";
+    //             btnClicked = 0;// Clear Guess Count
+    //             displayText.text = input.ToString();
+    //             break;
+    //
+    //         default: // Buton clicked add a variable
+    //             btnClicked++; // Add a guess
+    //             input += valueEntered;
+    //             displayText.text = input.ToString();
+    //             break;
+    //     }
+    //
+    //
+    // }
 }

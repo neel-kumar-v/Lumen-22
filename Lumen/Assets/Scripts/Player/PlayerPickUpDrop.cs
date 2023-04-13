@@ -35,33 +35,33 @@ public class PlayerPickUpDrop : MonoBehaviour
 
     private void RotateMirror() {
         if (objectGrabbable == null) return;
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            Rotate(Vector3.down);
-        }
-
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            Rotate(Vector3.up);
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow)) {
-            Rotate(Vector3.back);
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow)) {
-            Rotate(Vector3.forward);
-        }
-
-        bool shiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-
-        if (!shiftPressed) return;
-            
-        if (Input.GetKey(KeyCode.UpArrow)) {
-            Rotate(Vector3.right);
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow)) {
-            Rotate(Vector3.left);
-        }
+        // if (Input.GetKey(KeyCode.RightArrow)) {
+        //     Rotate(Vector3.down);
+        // }
+        //
+        // if (Input.GetKey(KeyCode.LeftArrow)) {
+        //     Rotate(Vector3.up);
+        // }
+        //
+        // if (Input.GetKey(KeyCode.UpArrow)) {
+        //     Rotate(Vector3.back);
+        // }
+        //
+        // if (Input.GetKey(KeyCode.DownArrow)) {
+        //     Rotate(Vector3.forward);
+        // }
+        //
+        // bool shiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        //
+        // if (!shiftPressed) return;
+        //     
+        // if (Input.GetKey(KeyCode.UpArrow)) {
+        //     Rotate(Vector3.right);
+        // }
+        //
+        // if (Input.GetKey(KeyCode.DownArrow)) {
+        //     Rotate(Vector3.left);
+        // }
             
 
 
@@ -85,25 +85,25 @@ public class PlayerPickUpDrop : MonoBehaviour
     }
 
     private void CheckForKey() {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            if (objectGrabbable == null) {
-                float pickupDistance = 6f;
-                if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward,
-                        out RaycastHit raycastHit, pickupDistance, pickupLayerMask)) {
-                    Debug.Log(raycastHit.transform.gameObject);
-                    if (raycastHit.transform.TryGetComponent(out objectGrabbable)) {
-                        objectGrabbable.Grab(objectGrabPointTransform);
-                        updateNecessary = true;
-                        // Debug.Log(objectGrabPointTransform.position);
-                    }
-
-                }
-            }
-            else {
-                objectGrabbable.Drop();
-                updateNecessary = false;
-                objectGrabbable = null;
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.E)) {
+        //     if (objectGrabbable == null) {
+        //         float pickupDistance = 6f;
+        //         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward,
+        //                 out RaycastHit raycastHit, pickupDistance, pickupLayerMask)) {
+        //             Debug.Log(raycastHit.transform.gameObject);
+        //             if (raycastHit.transform.TryGetComponent(out objectGrabbable)) {
+        //                 objectGrabbable.Grab(objectGrabPointTransform);
+        //                 updateNecessary = true;
+        //                 // Debug.Log(objectGrabPointTransform.position);
+        //             }
+        //
+        //         }
+        //     }
+        //     else {
+        //         objectGrabbable.Drop();
+        //         updateNecessary = false;
+        //         objectGrabbable = null;
+        //     }
+        // }
     }
 }

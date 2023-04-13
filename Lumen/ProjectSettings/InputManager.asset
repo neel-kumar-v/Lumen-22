@@ -116,7 +116,7 @@ InputManager:
     invert: 0
     type: 1
     axis: 0
-    joyNum: 0
+    joyNum: 14
   - serializedVersion: 3
     m_Name: Mouse Y
     descriptiveName: 
@@ -132,7 +132,7 @@ InputManager:
     invert: 0
     type: 1
     axis: 1
-    joyNum: 0
+    joyNum: 14
   - serializedVersion: 3
     m_Name: Mouse X Controller
     descriptiveName: 
@@ -148,7 +148,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 3
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Horizontal
     descriptiveName: 
@@ -186,7 +186,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 0
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -196,7 +196,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 4
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Fire2
     descriptiveName: 

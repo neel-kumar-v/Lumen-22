@@ -36,25 +36,25 @@ public class MouseLook : MonoBehaviour
         if(paused) return;
         float mouseX;
         float mouseY;
-        if (isSecondPlayer)
-        {
-            mouseX = Input.GetAxis("Mouse X Controller") * mouseSens * 20f * Time.deltaTime;
-            mouseY = Input.GetAxis("Mouse Y Controller") * mouseSens * 20f * Time.deltaTime;
-            
-        }
-        else
-        {
-            mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-            mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
-        }
-
-        xRotation -= mouseY;
-
-
-        xRotation = Mathf.Clamp(xRotation, topView, bottomView);
-        
-        
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        // if (isSecondPlayer)
+        // {
+        //     mouseX = Input.GetAxis("Mouse X Controller") * mouseSens * 20f * Time.deltaTime;
+        //     mouseY = Input.GetAxis("Mouse Y Controller") * mouseSens * 20f * Time.deltaTime;
+        //     
+        // }
+        // else
+        // {
+        //     mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
+        //     mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+        // }
+        //
+        // xRotation -= mouseY;
+        //
+        //
+        // xRotation = Mathf.Clamp(xRotation, topView, bottomView);
+        //
+        //
+        // transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        // playerBody.Rotate(Vector3.up * mouseX);
     }
 }
