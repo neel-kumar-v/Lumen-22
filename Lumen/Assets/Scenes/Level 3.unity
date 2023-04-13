@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.100868285, g: 0.12523706, b: 0.31788212, a: 1}
+  m_IndirectSpecularColor: {r: 0.08063884, g: 0.10033386, b: 0.3022589, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4711,6 +4711,16 @@ PrefabInstance:
       objectReference: {fileID: 244644722}
     - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
         type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 2027365913}
+    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
+        type: 3}
+      propertyPath: password
+      value: 
+      objectReference: {fileID: 2027365914}
+    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
+        type: 3}
       propertyPath: doorTurnOff
       value: 
       objectReference: {fileID: 6913809729856849220}
@@ -7725,7 +7735,7 @@ RectTransform:
   m_Children:
   - {fileID: 1020540079}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12898,18 +12908,18 @@ Transform:
   - {fileID: 669667248}
   - {fileID: 2096161767}
   - {fileID: 761418263}
+  - {fileID: 2120341159}
   - {fileID: 891958053}
   - {fileID: 1970120625}
   - {fileID: 2099887089}
-  - {fileID: 2120341159}
+  - {fileID: 1512184824}
   - {fileID: 886476393}
   - {fileID: 70356923}
   - {fileID: 918991284}
-  - {fileID: 1512184824}
   - {fileID: 250074643}
   - {fileID: 1923620269}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1747222505
 PrefabInstance:
@@ -14201,7 +14211,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1980679284 stripped
 Transform:
@@ -14584,6 +14594,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c72c743c9ac0dc24983729515c7b0f9a, type: 3}
+--- !u!198 &2027365913 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2277003701987912809, guid: c72c743c9ac0dc24983729515c7b0f9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2027365912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &2027365914 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2277003702887421208, guid: c72c743c9ac0dc24983729515c7b0f9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2027365912}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2027600678
 PrefabInstance:
   m_ObjectHideFlags: 0

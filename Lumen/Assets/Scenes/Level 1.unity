@@ -2337,7 +2337,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &194353811 stripped
 Transform:
@@ -4673,7 +4673,7 @@ Transform:
   - {fileID: 1931135907}
   - {fileID: 751588128}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428304967
 GameObject:
@@ -10772,7 +10772,7 @@ Transform:
   - {fileID: 1652075811}
   - {fileID: 54186373}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1083516108 stripped
 Transform:
@@ -12042,6 +12042,87 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 471261128}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1283308009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2277003703406952452, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_Name
+      value: PasswordGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.737944
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277003703407274412, guid: c72c743c9ac0dc24983729515c7b0f9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c72c743c9ac0dc24983729515c7b0f9a, type: 3}
+--- !u!198 &1283308010 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2277003701987912809, guid: c72c743c9ac0dc24983729515c7b0f9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283308009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1283308011 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2277003702887421208, guid: c72c743c9ac0dc24983729515c7b0f9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283308009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1312634784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 466816, guid: 5bceb99c9fa1f2a4bb9692e518bec46c,
@@ -12505,7 +12586,7 @@ Transform:
   - {fileID: 295818067}
   - {fileID: 418640215}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1342064197 stripped
 Transform:
@@ -12786,7 +12867,7 @@ Transform:
   - {fileID: 1342064197}
   - {fileID: 828350203}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1364024960 stripped
 Transform:
@@ -15899,7 +15980,7 @@ Transform:
   - {fileID: 1030165077}
   - {fileID: 253894609}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1712361420
 PrefabInstance:
@@ -16927,12 +17008,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5421926670423514465}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1857076889 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5421926672129582072, guid: 8493022f5ce44c54085ed25d5c8829a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 5421926670423514465}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1860669921
 GameObject:
   m_ObjectHideFlags: 0
@@ -17768,7 +17843,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is the reactor. Hit this!
+  m_text: This is the reactor. Hit this with the laser to get a password to unlock
+    the door!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -19725,7 +19801,7 @@ PrefabInstance:
     - target: {fileID: 3985683517572968531, guid: 726c7f1e53185af45b6918c46d04968b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3985683517572968531, guid: 726c7f1e53185af45b6918c46d04968b,
         type: 3}
@@ -20294,11 +20370,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
         type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 1857076889}
-    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
-        type: 3}
       propertyPath: text
       value: 
       objectReference: {fileID: 1857076887}
@@ -20306,32 +20377,17 @@ PrefabInstance:
         type: 3}
       propertyPath: particle
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1283308010}
     - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
         type: 3}
       propertyPath: password
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
-        type: 3}
-      propertyPath: particle1
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
-        type: 3}
-      propertyPath: particle2
-      value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1283308011}
     - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
         type: 3}
       propertyPath: doorTurnOff
       value: 
       objectReference: {fileID: 11640310}
-    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
-        type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
         type: 3}
       propertyPath: doorAnimator

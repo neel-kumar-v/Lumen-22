@@ -3084,6 +3084,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50064b43c0cfbfe4b9569f8cd9de067f, type: 3}
+--- !u!198 &445013479 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7106539932750576745, guid: 50064b43c0cfbfe4b9569f8cd9de067f,
+    type: 3}
+  m_PrefabInstance: {fileID: 445013478}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &445013480 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7106539932023145752, guid: 50064b43c0cfbfe4b9569f8cd9de067f,
+    type: 3}
+  m_PrefabInstance: {fileID: 445013478}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &459494132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10635,7 +10647,7 @@ PrefabInstance:
     - target: {fileID: 5421926670408459331, guid: 8493022f5ce44c54085ed25d5c8829a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5421926670408459331, guid: 8493022f5ce44c54085ed25d5c8829a0,
         type: 3}
@@ -11546,7 +11558,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1737150554
 PrefabInstance:
@@ -13958,6 +13970,16 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 648343325}
+    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
+        type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 445013479}
+    - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
+        type: 3}
+      propertyPath: password
+      value: 
+      objectReference: {fileID: 445013480}
     - target: {fileID: 4856997194315910935, guid: 4a569fe2613355f4a93da03a69b7ab62,
         type: 3}
       propertyPath: doorTurnOff
