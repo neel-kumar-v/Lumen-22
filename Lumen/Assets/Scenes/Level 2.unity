@@ -9330,6 +9330,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PasswordRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 7106539933916676208, guid: 50064b43c0cfbfe4b9569f8cd9de067f,
+        type: 3}
+      propertyPath: m_text
+      value: 9431
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50064b43c0cfbfe4b9569f8cd9de067f, type: 3}
 --- !u!198 &1982919199 stripped
@@ -9771,6 +9776,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1747324455, guid: 39c8812db92f8d54ead90a210252eec5, type: 3}
+      propertyPath: curPassword
+      value: 9431
+      objectReference: {fileID: 0}
     - target: {fileID: 3646656862594849252, guid: 39c8812db92f8d54ead90a210252eec5,
         type: 3}
       propertyPath: m_RootOrder
