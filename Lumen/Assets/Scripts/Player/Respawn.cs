@@ -15,19 +15,12 @@ public class Respawn : MonoBehaviour {
         startPos = transform.position;
     }
     
-    private void Reset()
+    public void Reset()
     {
         transform.position = startPos;
         rb.velocity = Vector3.zero;
+        
     }
     
-    // Update is called once per frame
-    void Update()
-    {
-        if (transform.position.y <= -5f)
-        {
-            Debug.Log("Went Below");
-            Reset();
-        }
-    }
+
 }

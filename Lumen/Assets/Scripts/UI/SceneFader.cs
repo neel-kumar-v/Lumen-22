@@ -9,6 +9,7 @@ public class SceneFader : MonoBehaviour
     public Image image;
     public AnimationCurve fadeInCurve;
     public AnimationCurve fadeOutCurve;
+    public Respawn respawn;
 
     void Start(){
         StartCoroutine(FadeIn());
@@ -27,6 +28,9 @@ public class SceneFader : MonoBehaviour
             image.color = new Color (0f, 0f, 0f, a);
             yield return 0;
         }
+        
+        respawn.Reset();
+        
     }
 
     IEnumerator FadeOut(int scene) {
@@ -44,7 +48,12 @@ public class SceneFader : MonoBehaviour
             StartCoroutine(FadeIn());
             yield return 0;
         }
-        SceneManager.LoadScene(scene);
+        else {
+            SceneManager.LoadScene(scene);
+        }
 
+    }
+    public void Reset() {
+        StartCoroutine(FadeOut(-1));
     }
 }

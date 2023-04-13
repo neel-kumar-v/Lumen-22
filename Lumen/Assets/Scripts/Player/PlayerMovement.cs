@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : NetworkBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     [SerializeField] private KeyboardControls keyboard;
     [SerializeField] private ControllerControls controllerControls;
+    [SerializeField] private PlayerControls playerControls;
+    private InputActionAsset inputAsset;
+    private InputActionMap player;
+    private InputAction move; 
+    private InputAction turbo; 
 
     public float speed = 12f;
     public float sprintSpeed = 20f;
@@ -33,6 +38,7 @@ public class PlayerMovement : NetworkBehaviour
     public bool isSecondPlayer = false;
 
     public static bool paused = false;
+    private float currentSpeed = 3f;
 
 
 
@@ -42,26 +48,29 @@ public class PlayerMovement : NetworkBehaviour
     {
         keyboard = new KeyboardControls();
         controllerControls = new ControllerControls();
-        // if (isSecondPlayer)
-        // {
-        //     controllerControls.Player.Jump.performed += ctx => Jump();
-        // }
-        // else
-        // {
-        //     keyboard.Player.Jump.performed += ctx => Jump();
-        // }
+        
+        playerControls = new PlayerControls();
+        inputAsset = this.GetComponent<PlayerInput>().actions;
+        player = inputAsset.FindActionMap("Player");
+
     }
     
     private void OnEnable()
     {
-        controllerControls.Enable();
-        keyboard.Enable();
+        // controllerControls.Enable();
+        // keyboard.Enable();
+        player.FindAction("Jump").started += ctx => Jump();
+        player.FindAction("Turbo").started += ctx => Jump();
+        move = player.FindAction("Move");
+        turbo = player.FindAction("Turbo");
+        playerControls.Enable();
     }
     
     private void OnDisable()
     {
-        controllerControls.Disable();
-        keyboard.Disable();
+        // controllerControls.Disable();
+        // keyboard.Disable();
+        playerControls.Disable();
     }
 
     private void Start()
@@ -85,45 +94,51 @@ public class PlayerMovement : NetworkBehaviour
         // if(!IsOwner) return;
 
 
-        float x;
-        float z;
+        // if (isSecondPlayer)
+        // {
+        //     var moveDirection = controllerControls.Player.Move.ReadValue<Vector2>();
+        //     x = -moveDirection.y;
+        //     z = moveDirection.x;
+        // }
+        // else
+        // {
+        //     var moveDirection = keyboard.Player.Move.ReadValue<Vector2>();
+        //     x = -moveDirection.y;
+        //     z = moveDirection.x;
+        // }
         
-        if (isSecondPlayer)
-        {
-            var moveDirection = controllerControls.Player.Move.ReadValue<Vector2>();
-            x = moveDirection.x;
-            z = moveDirection.y;
-        }
-        else
-        {
-            var moveDirection = keyboard.Player.Move.ReadValue<Vector2>();
-            x = moveDirection.x;
-            z = moveDirection.y;
-        }
-        
-        // Debug.Log($"{x}, {z}");
+        var moveDirection = move.ReadValue<Vector2>();
+        float x = -moveDirection.y;
+        float z = moveDirection.x;
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        float currentSpeed;
-        if (isSecondPlayer)
-        {
-            currentSpeed = controllerControls.Player.Turbo.ReadValue<float>() == 1f ? Mathf.Lerp(speed, sprintSpeed, acceleration) : speed;
-        }
-        else
-        {
-            currentSpeed = keyboard.Player.Turbo.ReadValue<float>() == 1f ? Mathf.Lerp(speed, sprintSpeed, acceleration) : speed;
-        }
-        controller.Move(move * currentSpeed * Time.deltaTime);
+        // Debug.Log($"{x}, {z}");
+        Vector3 moveVector = transform.right * x + transform.forward * z;
+        float targetSpeed = turbo.ReadValue<float>() == 1f ? sprintSpeed : speed;
+
+        // if (isSecondPlayer)
+        // {
+        //     
+        // }
+        // else
+        // {
+        //     targetSpeed = keyboard.Player.Turbo.ReadValue<float>() == 1f ? sprintSpeed : speed;
+        // }
+
+        currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
+        controller.Move(moveVector * currentSpeed * Time.deltaTime);
+
+
      
 
         Jump();
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
         
-        Debug.Log(audioManager.IsSoundPlaying("Footsteps"));
+        // Debug.Log(audioManager.IsSoundPlaying("Footsteps"));
         // if (IsMoving()) audioManager.UnpauseSound("Footsteps");
         // else audioManager.PauseSound("Footsteps");
 
         if (!(transform.position.y <= -5f)) return;
-        Debug.Log("Went Below");
         Reset();
     }
 
@@ -132,22 +147,21 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Jump()
     {
-        bool jumped;
-        if (isSecondPlayer)
-        {
-            jumped = controllerControls.Player.Jump.ReadValue<float>() == 1f;
-        }
-        else
-        {
-            jumped = keyboard.Player.Jump.ReadValue<float>() == 1f;
-        }
+        // bool jumped;
+        // if (isSecondPlayer)
+        // {
+        //     jumped = controllerControls.Player.Jump.ReadValue<float>() == 1f;
+        // }
+        // else
+        // {
+        //     jumped = keyboard.Player.Jump.ReadValue<float>() == 1f;
+        // }
         
-        if (isGrounded && jumped) {
+        if (isGrounded) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+       
     }
 
     // private bool IsMoving()
