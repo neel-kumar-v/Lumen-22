@@ -2,6 +2,7 @@ using System;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : NetworkBehaviour
 {
@@ -29,8 +30,39 @@ public class PlayerMovement : NetworkBehaviour
     public bool isSecondPlayer = false;
 
     public static bool paused = false;
-    
-   
+
+    // ControllerControls controls;
+
+
+    // private void Awake()
+    // {
+    //     controls = new ControllerControls();
+    //     controls.Player.Jump.performed += ctx => ControllerLook();
+    // }
+
+    // private void ControllerLook()
+    // {
+    //     float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
+    //     float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+    //
+    //     xRotation -= mouseY;
+    //     xRotation = Mathf.Clamp(xRotation, topView, bottomView);
+    //
+    //
+    //     transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+    //     playerBody.Rotate(Vector3.up * mouseX);
+    // }
+
+    // void OnEnable()
+    // {
+    //     controls.Player.Enable();
+    // }
+    //
+    // void OnDisable()
+    // {
+    //     controls.Player.Disable();
+    // }
+
 
     private void Start()
     {
@@ -52,12 +84,17 @@ public class PlayerMovement : NetworkBehaviour
         if (paused) return;
         // if(!IsOwner) return;
 
-        if (isSecondPlayer) {
-            MoveSecond();
-        }
-        else {
-            Move();
-        }
+        // if (isSecondPlayer) {
+        //     MoveSecond();
+        // }
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        Debug.Log($"{x}, {z}");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? Mathf.Lerp(speed, sprintSpeed, acceleration) : speed;
+        controller.Move(move * currentSpeed * Time.deltaTime);
+        
 
         Jump();
         Debug.Log(audioManager.IsSoundPlaying("Footsteps"));
@@ -69,23 +106,8 @@ public class PlayerMovement : NetworkBehaviour
         Reset();
     }
 
-    private void Move() {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Debug.Log($"{x}, {z}");
-
-        Vector3 move = transform.right * x + transform.forward * z;
-        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? Mathf.Lerp(speed, sprintSpeed, acceleration) : speed;
-        controller.Move(move * currentSpeed * Time.deltaTime);
-    }
-    private void MoveSecond() {
-        // // float x = Input.GetAxis("Horizontal2");
-        // // float z = Input.GetAxis("Vertical2");
-        //
-        // Vector3 move = transform.right * x + transform.forward * z;
-        // float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? Mathf.Lerp(speed, sprintSpeed, acceleration) : speed;
-        // controller.Move(move * currentSpeed * Time.deltaTime);
-    }
+   
+    
 
     private void Jump() {
         

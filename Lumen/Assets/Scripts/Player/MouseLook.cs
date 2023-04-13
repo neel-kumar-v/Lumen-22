@@ -12,6 +12,8 @@ public class MouseLook : MonoBehaviour
 
     float xRotation = 0f;
 
+    public bool isSecondPlayer;
+
     [Range(-50f, 0f)]
     public float topView;
     [Range(0f, 50f)]
@@ -32,13 +34,26 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if(paused) return;
-        float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+        float mouseX;
+        float mouseY;
+        if (isSecondPlayer)
+        {
+            mouseX = Input.GetAxis("Mouse X Controller") * mouseSens * 20f * Time.deltaTime;
+            mouseY = Input.GetAxis("Mouse Y Controller") * mouseSens * 20f * Time.deltaTime;
+            
+        }
+        else
+        {
+            mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
+            mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+        }
 
         xRotation -= mouseY;
+
+
         xRotation = Mathf.Clamp(xRotation, topView, bottomView);
-
-
+        
+        
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
