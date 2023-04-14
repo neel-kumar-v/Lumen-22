@@ -19,9 +19,8 @@ GameObject:
   - component: {fileID: -5071177719069701908}
   - component: {fileID: 6329072466240585191}
   - component: {fileID: 2145415576140052462}
-  - component: {fileID: -4323115484942167895}
   m_Layer: 3
-  m_Name: First Person Player
+  m_Name: First Person Player(Normal)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +74,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 7523075526162763306}
-  pos: {fileID: 0}
   speed: 6.3
   sprintSpeed: 20
   groundCheck: {fileID: 7523075526206323632}
@@ -248,23 +246,6 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &-4323115484942167895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7523075526162763317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a5c1d667a08a724e8b0d5effd0b4a98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players: []
-  startingPoints:
-  - {fileID: 4007774927286591872, guid: f0b2236f0f9ae3b45b58dde70361da5a, type: 3}
-  - {fileID: 4292746977848603621, guid: 365ce74e21c061d4abe1eb8cc51d60ff, type: 3}
-  playerLayers: []
 --- !u!1 &7523075526206323633
 GameObject:
   m_ObjectHideFlags: 0

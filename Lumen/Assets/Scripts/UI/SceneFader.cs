@@ -9,9 +9,10 @@ public class SceneFader : MonoBehaviour
     public Image image;
     public AnimationCurve fadeInCurve;
     public AnimationCurve fadeOutCurve;
-    public Respawn respawn;
+    // public GameObject[] gm;
 
     void Start(){
+        // gm = GameObject.FindGameObjectsWithTag("Player");
         StartCoroutine(FadeIn());
     }
 
@@ -28,8 +29,13 @@ public class SceneFader : MonoBehaviour
             image.color = new Color (0f, 0f, 0f, a);
             yield return 0;
         }
+
+        // foreach (GameObject gameObject in gm)
+        // {
+        //     gameObject.GetComponent<Respawn>().Reset();
+        // }
         
-        respawn.Reset();
+        
         
     }
 

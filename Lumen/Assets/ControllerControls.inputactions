@@ -1,5 +1,5 @@
 {
-    "name": "KeyboardControls",
+    "name": "ControllerControls",
     "maps": [
         {
             "name": "Player",
@@ -9,7 +9,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "0824daac-e7d0-4a26-b769-a919a61d25f5",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -27,7 +27,7 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "65856af1-2bda-4b24-8729-f0a313dccbeb",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -71,64 +71,9 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
-                    "id": "22ebd47e-d2f2-4fa8-9581-a6b3b521ccc0",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "f2a7f38f-77dc-4581-8e00-e1f394ee643a",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "cccdc978-1423-421b-84a3-c026e31e55f5",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "9c1f15ff-39b6-4da7-94dc-c19c523c1677",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "c0b994f6-8c0c-403f-acfd-4717e512d98b",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "f8dfac1c-e438-4c4a-920b-bbeea16bc449",
-                    "path": "<Keyboard>/space",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -139,7 +84,7 @@
                 {
                     "name": "",
                     "id": "2dd4a370-1271-407a-ab70-81ed61d39f30",
-                    "path": "<Mouse>/position",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -161,7 +106,7 @@
                 {
                     "name": "up",
                     "id": "78405b87-4642-46f8-a92f-76dab716de78",
-                    "path": "<Keyboard>/upArrow",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -172,7 +117,7 @@
                 {
                     "name": "down",
                     "id": "593bd25d-e193-4e48-b819-be1c46fd0631",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -183,7 +128,7 @@
                 {
                     "name": "left",
                     "id": "3204ed8f-c2d3-4737-849c-31c21823f72d",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Gamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -194,7 +139,7 @@
                 {
                     "name": "right",
                     "id": "54c97aad-1431-441a-b246-510abd92e682",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -205,7 +150,7 @@
                 {
                     "name": "",
                     "id": "e99ba70f-3d22-418f-acda-5137c0e168be",
-                    "path": "<Keyboard>/e",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -216,7 +161,7 @@
                 {
                     "name": "",
                     "id": "a0b7f624-9302-42b3-bcc1-e42ac69df3ba",
-                    "path": "<Keyboard>/escape",
+                    "path": "<XInputController>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -227,11 +172,22 @@
                 {
                     "name": "",
                     "id": "cb4543ff-8ed7-4980-828b-097bddda7ea5",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<XInputController>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Turbo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9239651-c987-4658-a0a9-e065b61105a0",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

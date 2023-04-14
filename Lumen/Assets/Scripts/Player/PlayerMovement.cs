@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,8 +14,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerControls playerControls;
     private InputActionAsset inputAsset;
     private InputActionMap player;
-    private InputAction move; 
-    private InputAction turbo; 
+    private InputAction move;
+    private InputAction turbo;
+
+    public StartPositions pos;
 
     public float speed = 12f;
     public float sprintSpeed = 20f;
@@ -46,15 +50,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        keyboard = new KeyboardControls();
-        controllerControls = new ControllerControls();
+        // keyboard = new KeyboardControls();
+        // controllerControls = new ControllerControls();
+        //
+        // playerControls = new PlayerControls();
         
-        playerControls = new PlayerControls();
         inputAsset = this.GetComponent<PlayerInput>().actions;
         player = inputAsset.FindActionMap("Player");
 
     }
     
+
     private void OnEnable()
     {
         // controllerControls.Enable();
@@ -63,24 +69,24 @@ public class PlayerMovement : MonoBehaviour
         player.FindAction("Turbo").started += ctx => Jump();
         move = player.FindAction("Move");
         turbo = player.FindAction("Turbo");
-        playerControls.Enable();
+        player.Enable();
+        
+        audioManager = AudioManager.instance;
+        if (audioManager != null) return;
+        Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
+        audioManager.PlaySound("Footsteps");
     }
     
     private void OnDisable()
     {
         // controllerControls.Disable();
         // keyboard.Disable();
-        playerControls.Disable();
+        player.FindAction("Jump").started -= ctx => Jump();
+        player.FindAction("Turbo").started -= ctx => Jump();
+        player.Disable();
     }
 
-    private void Start()
-    {
-        startPos = transform.position;
-        audioManager = AudioManager.instance;
-        if (audioManager != null) return;
-        Debug.LogError("FREAK OUT!: No AudioManager Found In Scene");
-        audioManager.PlaySound("Footsteps");
-    }
+  
 
     private void Update() {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -107,32 +113,19 @@ public class PlayerMovement : MonoBehaviour
         //     z = moveDirection.x;
         // }
         
+        
         var moveDirection = move.ReadValue<Vector2>();
         float x = -moveDirection.y;
         float z = moveDirection.x;
 
         // Debug.Log($"{x}, {z}");
         Vector3 moveVector = transform.right * x + transform.forward * z;
+        
         float targetSpeed = turbo.ReadValue<float>() == 1f ? sprintSpeed : speed;
-
-        // if (isSecondPlayer)
-        // {
-        //     
-        // }
-        // else
-        // {
-        //     targetSpeed = keyboard.Player.Turbo.ReadValue<float>() == 1f ? sprintSpeed : speed;
-        // }
-
         currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
         controller.Move(moveVector * currentSpeed * Time.deltaTime);
-
-
-     
-
-        Jump();
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        
+        
         
         // Debug.Log(audioManager.IsSoundPlaying("Footsteps"));
         // if (IsMoving()) audioManager.UnpauseSound("Footsteps");
@@ -141,8 +134,7 @@ public class PlayerMovement : MonoBehaviour
         if (!(transform.position.y <= -5f)) return;
         Reset();
     }
-
-   
+    
     
 
     private void Jump()
@@ -159,6 +151,8 @@ public class PlayerMovement : MonoBehaviour
         
         if (isGrounded) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
         }
 
        
