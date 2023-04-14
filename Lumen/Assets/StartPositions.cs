@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -45,10 +46,15 @@ public class StartPositions : MonoBehaviour
         players.Add(player);
         Debug.Log("Player Joined");
         
-        player.transform.position = startingPoints[players.Count - 1].position;
-
+        // player.transform.position = startingPoints[players.Count - 1].position;
+        StartCoroutine(LatePosition(0.2f, player));
         //set the layer
         player.gameObject.layer = 3;
         
+    }
+
+    private IEnumerator LatePosition(float wait, PlayerInput player) {
+        yield return new WaitForSeconds(wait);
+        player.transform.position = startingPoints[players.Count - 1].position;
     }
 }
